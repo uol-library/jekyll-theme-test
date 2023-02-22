@@ -1,0 +1,264 @@
+#     _____ __        _  __          _           __  _         
+#    / __(_) /____   / |/ /__ __  __(_)__ ____ _/ /_(_)__  ___ 
+#   _\ \/ / __/ -_) /    / _ `/ |/ / / _ `/ _ `/ __/ / _ \/ _ \
+#  /___/_/\__/\__/ /_/|_/\_,_/|___/_/\_, /\_,_/\__/_/\___/_//_/
+#                                   /___/                     
+# This file contains the main site navigation.
+#
+# There are four main navigation areas:
+#
+#   quicklinks - these are the menus at the top of the page in the black header
+#   main - this is the main menu shown below the black header
+#   section - this is a menu which can be turned on and off for different pages and can be used for contextual navigation
+#   footer - the footer has three menu areas in columns and another in the bottom band of the site
+#
+# All navigation items have a title and either have an items collection (for a nested menu) or a url
+
+# Quicklinks are placed in the black header at the top of each page
+# This menu must only be nested one level deep.
+
+quicklinks:
+  - title: Useful Links
+    items:
+      - title: Research Data Leeds Repository
+        url: https://archive.researchdata.leeds.ac.uk/
+      - title: Deposit in Research Data Leeds
+        url: https://library.leeds.ac.uk/info/14062/research_data_management/67/deposit_in_research_data_leeds
+      - title: Funder requirements
+        url: https://library.leeds.ac.uk/info/14062/research_data_management/69/funder_requirements
+      - title: Contact the Research Data Management Team
+        url: https://library.leeds.ac.uk/contact/research-data
+  - title: Data Management
+    items:
+      - title: Research data management explained
+        url: https://library.leeds.ac.uk/info/14062/research_data_management/61/research_data_management_explained
+      - title: Data management planning
+        url: https://library.leeds.ac.uk/info/14062/research_data_management/62/data_management_planning
+      - title: Research data management policy
+        url: https://library.leeds.ac.uk/info/14062/research_data_management/68/research_data_management_policy
+      - title: Research data management timeline
+        url: https://library.leeds.ac.uk/info/14062/research_data_management/143/research_data_management_timeline
+      - title: Safeguarding data
+        url: https://library.leeds.ac.uk/info/14062/research_data_management/63/safeguarding_data
+      - title: Organising and describing data
+        url: https://library.leeds.ac.uk/info/14062/research_data_management/64/organising_and_describing_data
+      - title: Storing and handling data
+        url: https://library.leeds.ac.uk/info/14062/research_data_management/65/storing_and_handling_data
+      - title: Sharing data
+        url: https://library.leeds.ac.uk/info/14062/research_data_management/66/sharing_data
+      - title: Find, reuse and cite data
+        url: https://library.leeds.ac.uk/info/14062/research_data_management/70/find_reuse_and_cite_data
+
+# Main menu placed under the black header
+# This menu must only be nested one level deep. Items on the nested level can also have a cta property which will change the link's appearance
+
+mainmenu:
+  - title: Repository User Guide
+    url: /repository-guide/
+  - title: Policies and Processes
+    url: /policies-processes/
+  - title: Data Management
+    url: /data-management/
+  - title: Open Research
+    url: /open-research/
+
+#  - title: 
+#    items:
+#      - title:
+#        url: 
+#      - title:
+#        url: 
+#        cta: 1
+#  - title: 
+#    url: 
+
+# Section menu
+# The section menu is located to the left of content on larger screens and forms a dropdown on smaller screens
+# So different pages can be in different sections, each menu has a name, and is referred to in page front matter
+# like this:
+
+# sectionmenu: sectionname
+
+sections:
+  userguide:
+    title: Repository User Guide
+    items:
+      - title: What the repository is for
+        url: /repository-guide/
+      - title: Choosing a Repository
+        url: /repository-guide/choosing-a-repository/
+      - title: Deposit with Research Data Leeds
+        url: /repository-guide/deposit-with-leeds/
+      - title: RADAR - restricted access repository
+        url: /repository-guide/radar/
+      - title: Deposit with UKDS via ReShare
+        url: /repository-guide/deposit-with-ukds/
+  processes:
+    title: Repository Policies and Processes
+    items:
+      - title: Repository Policies
+        url: /policies-processes/
+      - title: Dataset Preparation
+        items: 
+          - title: Creating a README file
+            url: /policies-processes/creating-a-readme/
+          - title: File Names
+            url: /policies-processes/file-preparation/
+          - title: Handling zipped archives
+            url: /policies-processes/zip-files/
+          - title: Making HPC data available
+            url: /policies-processes/hpc-data/
+  dmp:
+    title: Data Management
+    items:
+      - title: Data Management
+        url: /data-management/
+      - title: Safeguarding/Ethics/Legal
+        items:
+          - title: Ethics and Legal Compliance        
+            url: /data-management/ethics-and-legal-compliance/
+          - title: Data Management Planning for Ethical Review
+            url: /data-management/ethical-review/
+      - title: Writing a Data Management Plan
+        items:
+          - title: What is a Data Management Plan (DMP)?
+            url: /data-management/what-is-a-dmp/      
+          - title: Data Collection
+            url: /data-management/data-collection/
+          - title: Documentation and Metadata
+            url: /data-management/documentation-and-metadata/
+          - title: Selection and Preservation
+            url: /data-management/selection-and-preservation/
+          - title: Data Sharing
+            url: /data-management/data-sharing/
+          - title: Responsibilities and Resources
+            url: /data-management/responsibilities-and-resources/
+          - title: Faculty Specific Information
+            url: /data-management/faculties/
+          - title: Funder specific Information
+            url: /data-management/funders/
+      - title: Storing and Handling
+        items:
+          - title: Data classification
+            url: /data-management/data-classification/
+          - title: University data storage
+            url: /data-management/university-data-storage/
+          - title: Portable devices and storage
+            url: /data-management/portable-devices-and-storage/   
+          - title: Faculty and local storage
+            url: /data-management/faculty-and-local-storage/
+          - title: Naming files and folders
+            url: /data-management/naming-files-and-folders/
+          - title: Choosing file formats
+            url: /data-management/choosing-file-formats/
+          - title: Describing data
+            url: /data-management/describing-data/   
+      - title: Appraisal and Sharing
+        items:
+          - title: Select data to share
+            url: /data-management/select-data-to-share/
+          - title: Open and FAIR data
+            url: /data-management/open-and-fair-data/
+          - title: Ways to share data
+            url: /data-management/ways-to-share-data/   
+          - title: Choosing a data repository
+            url: /data-management/choosing-a-data-repository/
+          - title: Using a DOI for data citation
+            url: /data-management/using-a-doi-for-data-citation/                        
+          - title: Write a data statement
+            url: /data-management/write-a-data-statement/            
+      - title: Find, reuse and cite data
+        items:
+          - title: Data sources
+            url: /data-management/data-sources/
+          - title: Reuse data
+            url: /data-management/reuse-data/
+          - title: Teaching with data
+            url: /data-management/teaching-with-data/   
+          - title: Cite data
+            url: /data-management/cite-data/
+          - title: Social media as data
+            url: /data-management/social-media-as-data/                         
+  openresearch:
+    title: Open Research
+    items: 
+      - title: Open Research
+        url: /open-research/
+      - title: Horizon Europe Programme
+        url: /open-research/horizon-europe-programme/
+      - title: EU Open Science
+        url: /open-research/eu-open-science/
+      - title: RDM template text
+        url: /open-research/rdm-template/
+      - title: Open Science template text
+        url: /open-research/open-science-template/
+      - title: Choosing a repository
+        url: /open-research/choosing-repository/
+
+# Section Calls to action
+# These are located under the section menu to the left of content on larger screens and under the page content on
+# smaller screens. So different pages can be in different sections, each menu has a name, and is referred to in 
+# page front matter like this:
+
+# sectionctas: sectionctaname
+
+#sectionctas:
+#  sectionctaname:
+#    title: 
+#    items:
+#      - title: 
+#        url: 
+#      - title: 
+#        url: 
+
+# Footer menus are located at the bottom of each page and there can be up to
+# three configured here
+
+footermenus: 
+  - title: Useful Links
+    items:
+      - title: Research Data Leeds Repository
+        url: https://archive.researchdata.leeds.ac.uk/
+      - title: Deposit in Research Data Leeds
+        url: https://library.leeds.ac.uk/info/14062/research_data_management/67/deposit_in_research_data_leeds
+      - title: Funder requirements
+        url: https://library.leeds.ac.uk/info/14062/research_data_management/69/funder_requirements
+      - title: Contact the Research Data Management Team
+        url: https://library.leeds.ac.uk/contact/research-data
+  - title: Data Management
+    items:
+      - title: Research data management explained
+        url: https://library.leeds.ac.uk/info/14062/research_data_management/61/research_data_management_explained
+      - title: Data management planning
+        url: https://library.leeds.ac.uk/info/14062/research_data_management/62/data_management_planning
+      - title: Research data management policy
+        url: https://library.leeds.ac.uk/info/14062/research_data_management/68/research_data_management_policy
+      - title: Research data management timeline
+        url: https://library.leeds.ac.uk/info/14062/research_data_management/143/research_data_management_timeline
+      - title: Safeguarding data
+        url: https://library.leeds.ac.uk/info/14062/research_data_management/63/safeguarding_data
+      - title: Organising and describing data
+        url: https://library.leeds.ac.uk/info/14062/research_data_management/64/organising_and_describing_data
+      - title: Storing and handling data
+        url: https://library.leeds.ac.uk/info/14062/research_data_management/65/storing_and_handling_data
+      - title: Sharing data
+        url: https://library.leeds.ac.uk/info/14062/research_data_management/66/sharing_data
+      - title: Find, reuse and cite data
+        url: https://library.leeds.ac.uk/info/14062/research_data_management/70/find_reuse_and_cite_data
+  - title: Tools and Utilities
+    items:
+      - title: RDL Manual (restricted access)
+        url: https://manual.researchdata.leeds.ac.uk/
+
+# Footer Information consists of links to key pages on the site.
+# Each site should have its own Accessibility and Privacy pages
+# and may well have a Terms and Conditions page and Copyright
+# Page. You can also link to the University FOI page here.
+
+footerinfo:
+  - url: /privacy/
+    title: Privacy and Cookies
+  - url: /accessibility/
+    title: Accessibility
+  - url: "https://leeds.ac.uk/freedom-of-information"
+    title: "Freedom of information"
