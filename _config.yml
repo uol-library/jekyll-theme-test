@@ -1,0 +1,29 @@
+# ASCII-Font › http://patorjk.com/software/taag/#p=display&f=Small%20Slant&t=Site%20Settings
+#
+#     _____ __        ____    __  __  _
+#    / __(_) /____   / __/__ / /_/ /_(_)__  ___ ____
+#   _\ \/ / __/ -_) _\ \/ -_) __/ __/ / _ \/ _ `(_-<
+#  /___/_/\__/\__/ /___/\__/\__/\__/_/_//_/\_, /___/
+#                                         /___/
+#
+remote_theme: uol-library/jekyll-theme-uol
+title: Jekyll theme test site
+author:
+  name: peteredwards
+  email: p.l.edwards@leeds.ac.uk
+description: >
+  Test site for Jekyll Design System theme
+# contact information
+contact:
+  organisation: University of Leeds
+  # Address
+  address:
+    street: Woodhouse Lane
+    locality: Leeds
+    region: West Yorkshire
+    postcode: LS2 9JT
+    country: UK
+  telephone: +44 0113 243 1751
+  email: 
+  social_links:
+
