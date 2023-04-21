@@ -1,128 +1,49 @@
-<div class="uol-filters-panel uol-filters-panel--open" id="search-filters" aria-labelledby="filters-panel-title" role="group">
+<div class="uol-filters-panel" id="search-filters" aria-labelledby="filters-panel-title" role="group">
     <div class="dialog-overlay" tabindex="-1" data-a11y-dialog-hide></div>
     <h2 id="filters-panel-title" class="uol-filters-panel__title">Filters</h2>
+{%- for filter in site.data.config.filters -%}
+    {%- if filter.exclusive -%}
     <div class="uol-form__input-container">
-        <div role="radiogroup" aria-labelledby="filter-study-mode-group filter-study-mode-group-hint" class="uol-form__custom-fieldset">
-            <span id="filter-study-mode-group" class="uol-form__custom__legend">Mode of study</span>
-            <span class="uol-form__input-label__hint" id="filter-study-mode-group-hint">Select one option </span>
+        <div role="radiogroup" aria-labelledby="filter-{{ filter.key }}-group filter-{{ filter.key }}-group-hint" class="uol-form__custom-fieldset">
+            <span id="filter-{{ filter.key }}-group" class="uol-form__custom__legend">{{ filter.label }}</span>
+            <span class="uol-form__input-label__hint" id="filter-{{ filter.key }}-group-hint">Select one option </span>
             <div class="uol-form__inputs-wrapper ">
+                {%- for option in filter.options -%}
                 <div class="uol-form__input--radio-wrapper">
-                    <input class="uol-form__input--radio" type="radio" id="filter-study-mode-1" name="filter-study-mode-group" value="full-time">
-                    <label class="uol-form__input--radio__label" for="filter-study-mode-1">Full time</label>
+                    <input class="uol-form__input--radio" type="radio" id="filter-{{ filter.key }}-{{ option.key }}" name="filter-{{ filter.key }}-{{ option.key }}" value="{{ option.value }}">
+                    <label class="uol-form__input--radio__label" for="filter-{{ filter.key }}-{{ option.key }}">{{ option.label }}</label>
                     <span class="uol-form__input--custom-radio" hidden>
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" width="24px" aria-hidden="true" focusable="false">
                             <circle cx="12" cy="12" r="12" />
                         </svg>
                     </span>
                 </div>
-                <div class="uol-form__input--radio-wrapper">
-                    <input class="uol-form__input--radio" type="radio" id="filter-study-mode-2" name="filter-study-mode-group" value="part-time">
-                    <label class="uol-form__input--radio__label" for="filter-study-mode-2">Part time</label>
-                    <span class="uol-form__input--custom-radio" hidden>
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" width="24px" aria-hidden="true" focusable="false">
-                            <circle cx="12" cy="12" r="12" />
-                        </svg>
-                    </span>
-                </div>
+                {%- endfor -%}
             </div>
         </div>
     </div>
+    {%- else -%}
     <div class="uol-form__input-container">
-        <div role="group" aria-labelledby="filter-delivery-type-group filter-delivery-type-group-hint" class="uol-form__custom-fieldset">
-            <span id="filter-delivery-type-group" class="uol-form__custom__legend">Delivery type</span>
-            <span class="uol-form__input-label__hint" id="filter-delivery-type-group-hint">Select all that apply </span>
+        <div role="group" aria-labelledby="filter-{{ filter.key }}-group filter-{{ filter.key }}-group-hint" class="uol-form__custom-fieldset">
+            <span id="filter-{{ filter.key }}-group" class="uol-form__custom__legend">{{ filter.label }}</span>
+            <span class="uol-form__input-label__hint" id="filter-{{ filter.key }}-group-hint">Select all that apply </span>
+            {%- for option in filter.options -%}
             <div class="uol-form__input--checkbox-wrapper">
-                <input class="uol-form__input--checkbox" type="checkbox" id="filter-delivery-type-campus" name="filter-delivery-type-campus" value="">
-                <label class="uol-form__input--checkbox-label" for="filter-delivery-type-campus" id="filter-delivery-type-campus-label">On campus</label>
+                <input class="uol-form__input--checkbox" type="checkbox" id="filter-{{ filter.key }}-{{ option.key }}" name="filter-{{ filter.key }}-{{ option.key }}" value="{{ option.value }}">
+                <label class="uol-form__input--checkbox-label" for="filter-{{ filter.key }}-{{ option.key }}" id="filter-{{ filter.key }}-{{ option.key }}-label">{{ option.value }}</label>
                 <span class="uol-form__input--checkbox-custom">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
                         <path fill="#000" fill-rule="nonzero" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path>
                     </svg>
                 </span>
             </div>
-            <div class="uol-form__input--checkbox-wrapper">
-                <input class="uol-form__input--checkbox" type="checkbox" id="filter-delivery-type-blended" name="filter-delivery-type-blended" value="">
-                <label class="uol-form__input--checkbox-label" for="filter-delivery-type-blended" id="filter-delivery-type-blended-label">Blended learning</label>
-                <span class="uol-form__input--checkbox-custom">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-                        <path fill="#000" fill-rule="nonzero" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path>
-                    </svg>
-                </span>
-            </div>
-            <div class="uol-form__input--checkbox-wrapper">
-                <input class="uol-form__input--checkbox" type="checkbox" id="filter-delivery-type-online" name="filter-delivery-type-online" value="">
-                <label class="uol-form__input--checkbox-label" for="filter-delivery-type-online" id="filter-delivery-type-online-label">Online exclusive</label>
-                <span class="uol-form__input--checkbox-custom">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-                        <path fill="#000" fill-rule="nonzero" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path>
-                    </svg>
-                </span>
-            </div>
+            {%- endfor -%}
         </div>
     </div>
-    <div class="uol-form__input-container">
-        <div role="group" aria-labelledby="filter-course-type filter-course-type-hint" class="uol-form__custom-fieldset">
-            <span id="filter-course-type" class="uol-form__custom__legend">Course type</span>
-            <span class="uol-form__input-label__hint" id="filter-course-type-hint">Select all that apply </span>
-            <div class="uol-form__input--checkbox-wrapper">
-                <input class="uol-form__input--checkbox" type="checkbox" id="filter-course-type-foundation" name="filter-course-type-foundation" value="">
-                <label class="uol-form__input--checkbox-label" for="filter-course-type-foundation" id="filter-course-type-foundation-label">Foundation year</label>
-                <span class="uol-form__input--checkbox-custom">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-                        <path fill="#000" fill-rule="nonzero" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path>
-                    </svg>
-                </span>
-            </div>
-            <div class="uol-form__input--checkbox-wrapper">
-                <input class="uol-form__input--checkbox" type="checkbox" id="filter-course-type-apprenticeship" name="filter-course-type-apprenticeship" value="">
-                <label class="uol-form__input--checkbox-label" for="filter-course-type-apprenticeship" id="filter-course-type-apprenticeship-label">Apprenticeships</label>
-                <span class="uol-form__input--checkbox-custom">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-                        <path fill="#000" fill-rule="nonzero" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path>
-                    </svg>
-                </span>
-            </div>
-            <div class="uol-form__input--checkbox-wrapper">
-                <input class="uol-form__input--checkbox" type="checkbox" id="filter-course-type-intercalated" name="filter-course-type-intercalated" value="">
-                <label class="uol-form__input--checkbox-label" for="filter-course-type-intercalated" id="filter-course-type-intercalated-label">Intercalated degree</label>
-                <span class="uol-form__input--checkbox-custom">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-                        <path fill="#000" fill-rule="nonzero" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path>
-                    </svg>
-                </span>
-            </div>
-        </div>
-    </div>
-    <div class="uol-form__input-container">
-        <label class="uol-form__input-label" for="filter-subject" id="filter-subject-label">
-            <span class="uol-form__input-label__text">Subject</span>
-            <span class="uol-form__input-label__hint" id="filter-subject-hint">Select one option </span>
-        </label>
-        <div class="uol-form__input-wrapper" data-field-invalid=false>
-            <select class="uol-form__input uol-form__input--select" name="filter-subject" id="filter-subject">
-                <option value="">Select an option</option>
-                <option value="art_design_media_and_communication">Art, Design, Media and Communication</option>
-                <option value="biological_biomedical_and_sports_sciences">Biological, Biomedical and Sports Sciences</option>
-                <option value="business_management_finance_and_economics">Business, Management, Finance and Economics</option>
-                <option value="chemistry_food_science_and_nutrition">Chemistry, Food Science and Nutrition</option>
-                <option value="education_sociology_and_social_policy">Education, Sociology and Social Policy</option>
-                <option value="engineering_and_computing">Engineering and Computing</option>
-                <option value="english_history_and_humanities">English, History and Humanities</option>
-                <option value="geography_environment_and_earth_sciences">Geography, Environment and Earth Sciences</option>
-                <option value="languages_cultures_and_societies">Languages, Cultures and Societies</option>
-                <option value="law_criminology_and_politics">Law, Criminology and Politics</option>
-                <option value="mathematics_and_physics">Mathematics and Physics</option>
-                <option value="medicine_dentistry_psychology_and_healthcare">Medicine, Dentistry, Psychology and Healthcare</option>
-                <option value="music_theatre_and_performance">Music, Theatre and Performance</option>
-            </select>
-            <svg class="uol-form__input__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" focusable="false" aria-hidden="true">
-                <path fill="none" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-            </svg>
-        </div>
-    </div>
+    {%- endif -%}
+{%- endfor -%}
     <div class="uol-filters-panel__footer">
         <button id="clear_filter_panel" class="uol-button uol-button--secondary uol-icon uol-icon--mdiDeleteForeverOutline uol-icon--icon-only--large" type="button">Clear all filters</button>
-        <button id="show_search_results" class="uol-button uol-button--primary" type="button">Show 14 search results</button>
     </div>
 </div>
 <div class="uol-filters-panel__overlay"></div>
