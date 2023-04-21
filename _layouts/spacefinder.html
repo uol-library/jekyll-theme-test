@@ -2,37 +2,70 @@
 layout: default
 ---
 
-{% include components/banner.html %}
-{% include section-menu.html %}
-  <main id="main" class="uol-content-container">
-    {% include breadcrumbs.html %}
-    <div class="uol-col-container">
-      <div class="uol-side-nav-container"></div>
-      <div class="uol-page">
-        <div class="uol-page__head">
-          <header class="page-heading">
-            <h1 class="page-heading__title">{{ page.title }}</h1>
-          </header>
+  <main id="main" role="main" class="uol-content-container">
+    <form action="/forms/some-action" class="uol-col-container uol-search-results uol-search--has-filters">
+      <div class="uol-search-results__page-heading">
+        <header class="page-heading">
+            <h1 class="page-heading__title">
+                University Study Spaces
+            </h1>
+        </header>
+      </div>
+      {% include filters.html %}
+      <div class="uol-search-results__main">
+        <div class="uol-form__container">
+          <div class="uol-form__inner-wrapper">
+            <div class="uol-form uol-form--button-inline">
+              <div class="uol-form__inputs-wrapper">
+                <div class="uol-form__input-container">
+                  <div role="radiogroup" aria-labelledby="someGroupID" class="uol-form__custom-fieldset">
+                    <span id="someGroupID" class="uol-form__custom__legend">Year of entry</span>
+                    <div class="uol-form__inputs-wrapper uol-form__inputs-wrapper--inline">
+                      <div class="uol-form__input--radio-wrapper">
+                        <input class="uol-form__input--radio" type="radio" id="radio-one" name="radio-group-name" value="radio-one" checked>
+                        <label class="uol-form__input--radio__label" for="radio-one">Academic year 2022</label>
+                        <span class="uol-form__input--custom-radio" hidden>
+                          <svg xmlns="http://www.w3.org/2000/svg" height="24px" width="24px" aria-hidden="true" focusable="false">
+                            <circle cx="12" cy="12" r="12" />
+                          </svg>
+                        </span>
+                      </div>
+                      <div class="uol-form__input--radio-wrapper">
+                        <input class="uol-form__input--radio" type="radio" id="radio-two" name="radio-group-name" value="radio-two">
+                        <label class="uol-form__input--radio__label" for="radio-two">Academic year 2023</label>
+                        <span class="uol-form__input--custom-radio" hidden>
+                          <svg xmlns="http://www.w3.org/2000/svg" height="24px" width="24px" aria-hidden="true" focusable="false">
+                            <circle cx="12" cy="12" r="12" />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="uol-form__input-container">
+                  <label class="uol-form__input-label" for="inputId2">
+                    <span class="uol-form__input-label__text">Search our courses by keyword</span>
+                  </label>
+                  <div class="uol-form__input-wrapper uol-form__input-wrapper--search uol-form__input-wrapper--with-icon" data-field-invalid="false">
+                    <input class="uol-form__input  uol-form__input--search" type="search" id="inputId2" name="searchCourses2" value="" aria-invalid="false" autocomplete="off">
+                  </div>
+                </div>
+              </div>
+              <div class="uol-form__button-wrapper">
+                <button class="uol-button uol-button--primary" type="submit">Search</button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="uol-page__content">
-          <div class="uol-rich-text">
-            {% if page.imageurl and page.imagealt %}
-            <figure class="uol-featured-image">
-                <img class="uol-featured-image__img" src="{{ page.imageurl | absolute_url }}" alt="{{ page.imagealt | escape }}">
-            </figure>
-            {% endif %}
-            <div class="uol-rich-text{% if page.lead %} uol-rich-text--with-lead{% endif %}">
-            {% if page.lead %}
-                <p>{{ page.lead | strip_html }}</p>
-            {% endif %}
-            <div class="uol-copiable-container"><div class="uol-copiable">
-            {{ content | markdownify }}
-            </div></div>
+        <div class="uol-search-results__results">
+          <div class="uol-results-count">
+            <h2 class="uol-results-count__title">5 results for <strong>'ipsum'</strong></h2>
+          </div>
+          <div class="uol-search-results__button-chips-container"></div>
+          <div class="uol-results-items">
+            {% include spaces.html %}
           </div>
         </div>
       </div>
-    </div>
-
-    {% include section-menu-ctas.html %}
-
+    </form>
   </main>
