@@ -2,10 +2,10 @@
     <div class="dialog-overlay" tabindex="-1" data-a11y-dialog-hide></div>
     <h2 id="filters-panel-title" class="uol-filters-panel__title">Filters</h2>
 {%- for filter in site.data.config.filters -%}
-    <div class="uol-form__input-container">
+    <div class="uol-form__input-container uol-form__input-container--small">
         <div role="group" aria-labelledby="filter-{{ filter.key }}-group filter-{{ filter.key }}-group-hint" class="uol-form__custom-fieldset">
             <span id="filter-{{ filter.key }}-group" class="uol-form__custom__legend">{{ filter.label }}</span>
-            <span class="uol-form__input-label__hint" id="filter-{{ filter.key }}-group-hint">{% if filter.exclusive %}Select one option{% else %}Select all that apply{% endif %} </span>
+            {% if filter.options.size > 1 %}<span class="uol-form__input-label__hint" id="filter-{{ filter.key }}-group-hint">{% if filter.exclusive %}Select one option{% else %}Select all that apply{% endif %} </span>{% endif %}
             {%- for option in filter.options -%}
             <div class="uol-form__input--checkbox-wrapper">
                 <input class="uol-form__input--checkbox" type="checkbox" id="filter-{{ filter.key }}-{{ option.key }}" name="filter-{{ filter.key }}-{{ option.key }}" value="{{ option.key }}">

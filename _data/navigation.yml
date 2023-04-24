@@ -58,9 +58,9 @@ quicklinks:
 # Main menu placed under the black header
 # This menu must only be nested one level deep. Items on the nested level can also have a cta property which will change the link's appearance
 
-mainmenu:
- - title: Library
-   url: https://library.leeds.ac.uk/
+#mainmenu:
+# - title: Library
+#   url: https://library.leeds.ac.uk/
 
 # Footer menus are located at the bottom of each page and there can be up to
 # three configured here
