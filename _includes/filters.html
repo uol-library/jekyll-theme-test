@@ -1,14 +1,14 @@
-<div class="uol-filters-panel" id="search-filters Filters" aria-labelledby="filters-panel-title" role="group">
+<div class="uol-filters-panel" id="search-filters" aria-labelledby="filters-panel-title" role="group">
     <div class="dialog-overlay" tabindex="-1" data-a11y-dialog-hide></div>
     <h2 id="filters-panel-title" class="uol-filters-panel__title">Filters</h2>
 {%- for filter in site.data.config.filters -%}
     <div class="uol-form__input-container uol-form__input-container--small">
-        <div role="group" aria-labelledby="filter-{{ filter.key }}-group filter-{{ filter.key }}-group-hint" class="uol-form__custom-fieldset">
+        <div role="group" id="{{ filter.key }}" data-label="{{ filter.label }}" data-message="{{ filter.message }}" data-additive="{{ filter.additive }}" aria-labelledby="filter-{{ filter.key }}-group{% if filter.options.size > 1 %} filter-{{ filter.key }}-group-hint{% endif %}" class="uol-form__custom-fieldset">
             <span id="filter-{{ filter.key }}-group" class="uol-form__custom__legend">{{ filter.label }}</span>
             {% if filter.options.size > 1 %}<span class="uol-form__input-label__hint" id="filter-{{ filter.key }}-group-hint">{% if filter.exclusive %}Select one option{% else %}Select all that apply{% endif %} </span>{% endif %}
             {%- for option in filter.options -%}
             <div class="uol-form__input--checkbox-wrapper">
-                <input class="uol-form__input--checkbox" type="checkbox" id="filter-{{ filter.key }}-{{ option.key }}" name="filter-{{ filter.key }}-{{ option.key }}" value="{{ option.key }}">
+                <input class="uol-form__input--checkbox{% if filter.exclusive %} exclusive{% endif %}" type="checkbox" id="{{ filter.key }}_{{ option.key }}" data-filterkey="{{ filter.key }}" data-optionkey="{{ option.key }}" data-optionlabel="{{ option.label }}" name="{{ filter.key }}_{{ option.key }}" value="{{ option.key }}">
                 <label class="uol-form__input--checkbox-label" for="filter-{{ filter.key }}-{{ option.key }}" id="filter-{{ filter.key }}-{{ option.key }}-label">{{ option.label }}</label>
                 <span class="uol-form__input--checkbox-custom">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
