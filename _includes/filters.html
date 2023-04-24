@@ -1,36 +1,15 @@
-<div class="uol-filters-panel" id="search-filters" aria-labelledby="filters-panel-title" role="group">
+<div class="uol-filters-panel" id="search-filters Filters" aria-labelledby="filters-panel-title" role="group">
     <div class="dialog-overlay" tabindex="-1" data-a11y-dialog-hide></div>
     <h2 id="filters-panel-title" class="uol-filters-panel__title">Filters</h2>
 {%- for filter in site.data.config.filters -%}
-    {%- if filter.exclusive -%}
-    <div class="uol-form__input-container">
-        <div role="radiogroup" aria-labelledby="filter-{{ filter.key }}-group filter-{{ filter.key }}-group-hint" class="uol-form__custom-fieldset">
-            <span id="filter-{{ filter.key }}-group" class="uol-form__custom__legend">{{ filter.label }}</span>
-            <span class="uol-form__input-label__hint" id="filter-{{ filter.key }}-group-hint">Select one option </span>
-            <div class="uol-form__inputs-wrapper ">
-                {%- for option in filter.options -%}
-                <div class="uol-form__input--radio-wrapper">
-                    <input class="uol-form__input--radio" type="radio" id="filter-{{ filter.key }}-{{ option.key }}" name="filter-{{ filter.key }}-{{ option.key }}" value="{{ option.value }}">
-                    <label class="uol-form__input--radio__label" for="filter-{{ filter.key }}-{{ option.key }}">{{ option.label }}</label>
-                    <span class="uol-form__input--custom-radio" hidden>
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" width="24px" aria-hidden="true" focusable="false">
-                            <circle cx="12" cy="12" r="12" />
-                        </svg>
-                    </span>
-                </div>
-                {%- endfor -%}
-            </div>
-        </div>
-    </div>
-    {%- else -%}
     <div class="uol-form__input-container">
         <div role="group" aria-labelledby="filter-{{ filter.key }}-group filter-{{ filter.key }}-group-hint" class="uol-form__custom-fieldset">
             <span id="filter-{{ filter.key }}-group" class="uol-form__custom__legend">{{ filter.label }}</span>
-            <span class="uol-form__input-label__hint" id="filter-{{ filter.key }}-group-hint">Select all that apply </span>
+            <span class="uol-form__input-label__hint" id="filter-{{ filter.key }}-group-hint">{% if filter.exclusive %}Select one option{% else %}Select all that apply{% endif %} </span>
             {%- for option in filter.options -%}
             <div class="uol-form__input--checkbox-wrapper">
-                <input class="uol-form__input--checkbox" type="checkbox" id="filter-{{ filter.key }}-{{ option.key }}" name="filter-{{ filter.key }}-{{ option.key }}" value="{{ option.value }}">
-                <label class="uol-form__input--checkbox-label" for="filter-{{ filter.key }}-{{ option.key }}" id="filter-{{ filter.key }}-{{ option.key }}-label">{{ option.value }}</label>
+                <input class="uol-form__input--checkbox" type="checkbox" id="filter-{{ filter.key }}-{{ option.key }}" name="filter-{{ filter.key }}-{{ option.key }}" value="{{ option.key }}">
+                <label class="uol-form__input--checkbox-label" for="filter-{{ filter.key }}-{{ option.key }}" id="filter-{{ filter.key }}-{{ option.key }}-label">{{ option.label }}</label>
                 <span class="uol-form__input--checkbox-custom">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
                         <path fill="#000" fill-rule="nonzero" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path>
@@ -40,7 +19,6 @@
             {%- endfor -%}
         </div>
     </div>
-    {%- endif -%}
 {%- endfor -%}
     <div class="uol-filters-panel__footer">
         <button id="clear_filter_panel" class="uol-button uol-button--secondary uol-icon uol-icon--mdiDeleteForeverOutline uol-icon--icon-only--large" type="button">Clear all filters</button>

@@ -3,7 +3,7 @@ layout: default
 ---
 
   <main id="main" role="main" class="uol-content-container">
-    <form action="/forms/some-action" class="uol-col-container uol-search-results uol-search--has-filters">
+    <form action="#" class="uol-col-container uol-search-results uol-search--has-filters">
       <div class="uol-search-results__page-heading">
         <header class="page-heading">
             <h1 class="page-heading__title">
@@ -11,12 +11,39 @@ layout: default
             </h1>
         </header>
       </div>
-      {% include filters.html %}
+      <div class="uol-search-result__filters">
+        {% include filters.html %}
+      </div>
       <div class="uol-search-results__main">
         <div class="uol-form__container">
           <div class="uol-form__inner-wrapper">
             <div class="uol-form uol-form--button-inline">
               <div class="uol-form__inputs-wrapper">
+                <div class="uol-form__input-container">
+                  <div aria-labelledby="sortHeader" class="uol-form__custom-fieldset">
+                    <span id="sortHeader" class="uol-form__custom__legend">Sort results</span>
+                    <div class="uol-form__inputs-wrapper uol-form__inputs-wrapper--inline">
+                      <div class="uol-form__input--radio-wrapper">
+                        <input class="uol-form__input--radio" type="radio" id="radio-one" name="radio-group-name" value="radio-one" checked>
+                        <label class="uol-form__input--radio__label" for="radio-one">Alphabetically</label>
+                        <span class="uol-form__input--custom-radio" hidden>
+                          <svg xmlns="http://www.w3.org/2000/svg" height="24px" width="24px" aria-hidden="true" focusable="false">
+                            <circle cx="12" cy="12" r="12" />
+                          </svg>
+                        </span>
+                      </div>
+                      <div class="uol-form__input--radio-wrapper">
+                        <input class="uol-form__input--radio" type="radio" id="radio-two" name="radio-group-name" value="radio-two">
+                        <label class="uol-form__input--radio__label" for="radio-two">By distance</label>
+                        <span class="uol-form__input--custom-radio" hidden>
+                          <svg xmlns="http://www.w3.org/2000/svg" height="24px" width="24px" aria-hidden="true" focusable="false">
+                            <circle cx="12" cy="12" r="12" />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div class="uol-form__input-container">
                   <label class="uol-form__input-label" for="inputId2">
                     <span class="uol-form__input-label__text">Search spaces by keyword</span>
@@ -34,10 +61,10 @@ layout: default
         </div>
         <div class="uol-search-results__results">
           <div class="uol-results-count">
-            <h2 class="uol-results-count__title">5 results for <strong>'ipsum'</strong></h2>
+            <h2 class="uol-results-count__title" id="searchResultsSummary"></h2>
           </div>
-          <div class="uol-search-results__button-chips-container"></div>
-          <div class="uol-results-items">
+          <div class="uol-search-results__button-chips-container" id="listfilters"></div>
+          <div class="uol-results-items" id="listcontent">
             {% include spaces.html %}
           </div>
         </div>

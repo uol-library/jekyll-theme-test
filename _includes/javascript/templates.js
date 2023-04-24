@@ -13,14 +13,15 @@
  * @return {Element} HTML element
  */
 function getSpaceHTML( space ) {
-    spaceContainer = document.createElement('div');
+    spaceContainer = document.createElement('article');
+
     spaceContainer.setAttribute( 'data-id', space.id );
     spaceContainer.setAttribute( 'id', 'space' + space.id );
     spaceContainer.setAttribute( 'data-sortalpha', space.sortKey );
     spaceContainer.setAttribute( 'class', getClassList( space ) );
-    let spaceHTML = '<div class="space-summary"><h3><button data-slug="' + space.slug + '" class="accordion-trigger space-title load-info" aria-expanded="false" aria-controls="additionalInfo' + space.id + '" data-spaceid="' + space.id + '">' + space.title + '</button></h3>';
-    spaceHTML += '<p class="space-info"><span class="space-type space-type-' + space.space_type.replace( /[^0-9a-zA-Z]/g, '').toLowerCase() + '">' + space.space_type + '<span class="distance" id="distance' + space.id +'"></span></span>';
-    spaceHTML += '';
+    let spaceHTML = '<div class="uol-results-items__item__text-container space-summary"><h2 class="uol-results-items__item__title"><button data-slug="' + space.slug + '" class="accordion-trigger space-title load-info" aria-expanded="false" aria-controls="additionalInfo' + space.id + '" data-spaceid="' + space.id + '">' + space.title + '</button></h3>';
+    spaceHTML += '<dl class="uol-results-items__item__meta">';
+    spaceHTML += '<div class="uol-results-items__item__meta__group"><dt class="uol-results-items__item__meta__label">Type</dt><dd class="uol-results-items__item__meta__data">' + space.space_type + '<span class="distance" id="distance' + space.id +'"></span></dd></div>';
     let loc = '';
     if ( space.floor !== '' ) {
         loc += '<span class="address-floor">' + space.floor + '</span>, ';
@@ -31,14 +32,14 @@ function getSpaceHTML( space ) {
     if ( space.address !== '' ) {
         loc += '<span class="address-location">' + space.address + '</span>';
     }
-    spaceHTML += '<span class="address">' + loc + '</span></p>';
-    spaceHTML += '<div class="space-details">';
+    spaceHTML += '<div class="uol-results-items__item__meta__group"><dt class="uol-results-items__item__meta__label">Address</dt><dd class="uol-results-items__item__meta__data">' + loc + '</dd></div>';
+    spaceHTML += '</dl>';
+    spaceHTML += '<p class="uol-results-items__item__summary">' + space.description + '</p></div>';
     if ( space.image != '' ) {
-        spaceHTML += '<img src="' + spacefinder.imageBaseURL + space.image + '" class="space-image" loading="lazy" alt="' + space.imagealt + '">';
+        spaceHTML += '<div class="uol-results-items__item__image-container"><img class="uol-results-items__item__img" src="' + spacefinder.imageBaseURL + space.image + '" class="space-image" loading="lazy" alt="' + space.imagealt + '"></div>';
     }
-    spaceHTML += '<p class="description">' + space.description + '</p></div></div>';
     spaceHTML += '<div class="additionalInfo" id="additionalInfo' + space.id + '"></div>';
-    spaceHTML += '</div>';
+    spaceHTML += '</article>';
     spaceContainer.innerHTML = spaceHTML;
     return spaceContainer;
 }
@@ -136,7 +137,7 @@ function getAdditionalInfo( space ) {
  * @return {String} classList Space separated list of classnames
  */
 function getClassList( space ) {
-    var classList = 'list-space ';
+    var classList = 'uol-results-items__item list-space ';
     if ( space.space_type ) {
         classList += 'space_type_' + space.space_type.replace( /[^0-9a-zA-Z]/g, '' ).toLowerCase() + ' ';
     }
