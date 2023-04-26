@@ -1,0 +1,59 @@
+{% assign address = "" %}
+{% if page.data.floor != "" %}
+    {% assign address = address | append: page.data.floor | append: ", " %}
+{% endif %}
+{% if page.data.building  != "" %}
+    {% assign address = address | append: page.data.building | append: ", " %}
+{% endif %}
+{% if page.data.address != "" %}
+    {% assign address = address | append: page.data.address %}
+{% endif %}
+<aside class="uol-content-switch-from-side-to-main uol-section-nav-related-content" aria-label="Related content">
+    <h2 class="uol-section-nav-related-content__title">Key Facts</h2>
+    <div class="uol-section-nav-related-content__list">
+        {% if address != "" %}
+        <div class="uol-section-nav-related__item">
+            <h3 class="uol-section-nav-related-content__item__title">Address</h3>
+            <p class="uol-section-nav-related-content__item__text">{{ address }}</p>
+            {% if page.data.campusmap_url && page.data.campusmap_url != "" %}
+            <div class="uol-section-nav-related-content__item__contact-wrapper">
+               <a class="uol-section-nav-related-content__contact"  href="{{ page.data.campusmap_url }}">View on the campus map</a>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+        <div class="uol-section-nav-related__item">
+            <h3 class="uol-section-nav-related-content__item__title">Contacts</h3>
+            {% if page.data.url and page.data.url != "" and page.data.url_text and page.data.url_text != "" %}
+            <div class="uol-section-nav-related-content__item__contact-wrapper">
+                <a class="uol-section-nav-related-content__contact" href="{{ page.data.url }}">{{ page.data.url_text }}</a>
+            </div>
+            {% endif %}
+            {% if page.data.phone_number and page.data.phone_number != "" and page.data.phone_text and page.data.phone_text != "" %}
+            <div class="uol-section-nav-related-content__item__contact-wrapper">
+                <a class="uol-section-nav-related-content__contact uol-section-nav-related-content__contact--phone" href="tel:{{ page.data.phone_number }}">{{ page.data.phone_text }}</a>
+            </div>
+            {% endif %}
+            {% if page.data.email_address and page.data.email_address != "" %}
+            <div class="uol-section-nav-related-content__item__contact-wrapper">
+                <a class="uol-section-nav-related-content__contact uol-section-nav-related-content__contact--email" href="mailto:{{ page.data.email_address }}">{{ page.data.email_address }}</a>
+            </div>
+            {% endif %}
+        </div>
+        {% if page.data.twitter_screen_name != "" or page.data.facebook_url != "" %}
+        <div class="uol-section-nav-related__item">
+            <h3 class="uol-section-nav-related-content__item__title">Follow us</h3>
+            {% if page.data.twitter_screen_name != "" %}
+            <div class="uol-section-nav-related-content__item__contact-wrapper">
+                <a class="uol-section-nav-related-content__contact" href="https://twitter.com/{{ page.data.twitter_screen_name }}">Follow {{ page.data.twitter_screen_name }} on twitter</a>
+            </div>
+            {% endif %}
+            {% if page.data.facebook_url != "" %}
+            <div class="uol-section-nav-related-content__item__contact-wrapper">
+                <a class="uol-section-nav-related-content__contact" href="{{ page.data.facebook_url }}">Follow {{ page.data.facebook_url | replace: 'https://www.facebook.com/', '' }} on facebook</a>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</aside>

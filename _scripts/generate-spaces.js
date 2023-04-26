@@ -10,7 +10,8 @@ var spacedata = fs.readFileSync( path.resolve( __dirname, '../_data/spaces.json'
 var spaceJSON = JSON.parse(spacedata);
 /* create pages for each space with all data in frontmatter */
 spaceJSON.forEach( space => {
-    var itemYAML = "---\nlayout: space\npermalink: /" + space.slug + "/\n" + YAML.stringify( space ) + "\n---\n";
+    let spacedata = { data: space };
+    var itemYAML = "---\nlayout: space\npermalink: /" + space.slug + "/\n" + YAML.stringify( spacedata ) + "\n---\n";
     fs.writeFile( path.resolve( __dirname, '../pages/', space.slug + '.md' ), itemYAML, err => {
         if (err) {
             console.error( err );

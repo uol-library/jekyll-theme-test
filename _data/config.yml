@@ -3,15 +3,15 @@ map:
   startLng: -1.555291
   startZoom: 16
 filters:
-  - key: "open"
-    label: "Spaces currently open"
-    message: "Showing spaces which are currently open"
-    exclusive: false
-    additive: false
-    open: true
-    options:
-      - key: "show_open"
-        label: "Only show spaces which are currently open"
+#  - key: "open"
+#    label: "Spaces currently open"
+#    message: "Showing spaces which are currently open"
+#    exclusive: false
+#    additive: false
+#    open: true
+#    options:
+#      - key: "show_open"
+#        label: "Only show spaces which are currently open"
   - key: "space_type"
     label: "Space type"
     message: "Filtering spaces by type: "

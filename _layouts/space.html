@@ -2,14 +2,14 @@
 layout: default
 ---
 {% assign address = "" %}
-{% if page.floor != "" %}
-    {% assign address = address | append: page.floor | append: ", " %}
+{% if page.data.floor != "" %}
+    {% assign address = address | append: page.data.floor | append: ", " %}
 {% endif %}
-{% if page.building  != "" %}
-    {% assign address = address | append: page.building | append: ", " %}
+{% if page.data.building  != "" %}
+    {% assign address = address | append: page.data.building | append: ", " %}
 {% endif %}
-{% if page.address != "" %}
-    {% assign address = address | append: page.address %}
+{% if page.data.address != "" %}
+    {% assign address = address | append: page.data.address %}
 {% endif %}
   <main id="main" class="uol-content-container">
     <div class="uol-col-container">
@@ -17,47 +17,39 @@ layout: default
       <div class="uol-page">
         <div class="uol-page__head">
           <header class="page-heading">
-            <h1 class="page-heading__title">{{ page.title }}</h1>
+            <h1 class="page-heading__title">{{ page.data.title }}</h1>
           </header>
         </div>
         <div class="uol-page__content">
           <div class="uol-rich-text">
-            {% if page.image and page.imagealt %}
+            {% if page.data.image and page.data.imagealt %}
             <figure class="uol-featured-image">
-                <img class="uol-featured-image__img" src="{{ page.image | absolute_url }}" alt="{{ page.imagealt | escape }}">
+                <img class="uol-featured-image__img" src="{{ page.data.image | absolute_url }}" alt="{{ page.data.imagealt | escape }}">
             </figure>
             {% endif %}
             <div class="uol-rich-text uol-rich-text--with-lead">
                 <p>{{ address }}</p>
-                <p>{{ page.description }}</p>
+                <p>{{ page.data.description }}</p>
                 <h3>Opening Times</h3>
                 <table>
                     <thead>
                         <tr><th>Day</th><th>Open</th><th>Close</th></tr>
                     </thead>
                     <tbody>
-                        <tr><td>Monday</td>{% if page.opening_hours.monday.open %}<td>{{ page.opening_hours.monday.from }}</td><td>{{ page.opening_hours.monday.to }}{% else %}<td colspan="2">Closed{% endif %}</td></tr>
-                        <tr><td>Tuesday</td>{% if page.opening_hours.tuesday.open %}<td>{{ page.opening_hours.tuesday.from }}</td><td>{{ page.opening_hours.tuesday.to }}{% else %}<td colspan="2">Closed{% endif %}</td></tr>
-                        <tr><td>Wednesday</td>{% if page.opening_hours.wednesday.open %}<td>{{ page.opening_hours.wednesday.from }}</td><td>{{ page.opening_hours.wednesday.to }}{% else %}<td colspan="2">Closed{% endif %}</td></tr>
-                        <tr><td>Thursday</td>{% if page.opening_hours.thursday.open %}<td>{{ page.opening_hours.thursday.from }}</td><td>{{ page.opening_hours.thursday.to }}{% else %}<td colspan="2">Closed{% endif %}</td></tr>
-                        <tr><td>Friday</td>{% if page.opening_hours.friday.open %}<td>{{ page.opening_hours.friday.from }}</td><td>{{ page.opening_hours.friday.to }}{% else %}<td colspan="2">Closed{% endif %}</td></tr>
-                        <tr><td>Saturday</td>{% if page.opening_hours.saturday.open %}<td>{{ page.opening_hours.saturday.from }}</td><td>{{ page.opening_hours.saturday.to }}</td>{% else %}<td colspan="2">Closed</td>{% endif %}</tr>
-                        <tr><td>Sunday</td>{% if page.opening_hours.sunday.open %}<td>{{ page.opening_hours.sunday.from }}</td><td>{{ page.opening_hours.sunday.to }}{% else %}<td colspan="2">Closed{% endif %}</td></tr>
+                      {% for day in page.data.opening_hours %}<tr><td>{{ day[0] | capitalize }}</td>{% if day[1].open %}<td>{{ day[1].from }}</td><td>{{ day[1].to }}{% else %}<td colspan="2">Closed{% endif %}</td></tr>{% endfor %}
                     </tbody>
                 </table>
                 <h3>Facilities Available</h3>
                 <ul>
-                    {%- for fac in page.facilities -%}
-                      {%- for f in site.data.config.filters -%}
-                        {%- if f.key == "facilities" -%}
-                          {%- for opt in f.options -%}
-                            {% if opt.key == fac %}
-                    <li>{{ opt.label }}</li>
-                            {% endif %}
-                          {%- endfor -%}
-                        {%- endif -%}
+                {%- for fac in page.data.facilities -%}
+                  {%- for f in site.data.config.filters -%}
+                    {%- if f.key == "facilities" -%}
+                      {%- for opt in f.options -%}
+                        {% if opt.key == fac %}<li>{{ opt.label }}</li>{% endif %}
                       {%- endfor -%}
-                    {%- endfor -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+                {%- endfor -%}
                 </ul>
             </div>
           </div>
@@ -65,8 +57,6 @@ layout: default
       </div>
     </div>
 
-    {% include section-menu-facts.html %}
-
-    {% include section-menu-social-media-ctas.html %}
+    {% include section-menu-related.html %}
 
   </main>

@@ -16,12 +16,11 @@ document.addEventListener( 'DOMContentLoaded', () => {
             item.dispatchEvent( new Event( 'viewfilter', { bubbles: true } ) );
         });
     }
+    /**
+     * These delegated click events remove search/filter terms when one of them is
+     * clicked in the filter status message. 
+     */
     document.addEventListener( 'click', event => {
-        /**
-         * These remove search terms or filter terms when one of them is
-         * clicked in the filter status message. Maybe need to refactor filter
-         * status message and these events to filters.js?
-         */
         if ( event.target.classList.contains( 'search-term' ) ) {
             event.preventDefault();
             let searchtext = event.target.getAttribute( 'data-searchtext' );
@@ -43,9 +42,22 @@ document.addEventListener( 'DOMContentLoaded', () => {
             document.dispatchEvent( new Event( 'viewfilter', { bubbles: true } ) );
         }
     });
+    /* search action */
+    document.getElementById( 'search-submit' ).addEventListener( 'click', event => {
+        event.preventDefault();
+        let inputvalue = document.getElementById( 'search-input' ).value.replace( /[^a-zA-Z0-9 ]/g, '' ).trim();
+        if ( inputvalue.length > 1 ) {
+            document.getElementById( 'search-input' ).value = inputvalue;
+            /* trigger the viewfilter event */
+            event.target.dispatchEvent( new Event( 'viewfilter', { bubbles: true } ) );
+        }
+    });
+
     document.addEventListener( 'viewfilter', applyFilters );
 
     document.addEventListener( 'filtersapplied', updateListFilterMessage );
+    document.addEventListener( 'filtersapplied', updateSpacesCountMessage );
+    updateSpacesCountMessage() 
 });
 /**
  * Applies filters to the list of spaces
@@ -131,7 +143,7 @@ function updateListFilterMessage() {
     /* empty any existing messages and hide */
     container.textContent = '';
     container.setAttribute( 'hidden', '' );
-    let searchmessage = filtermessage = resultsmessage = '';
+    let searchmessage = filtermessage = '';
     if ( activeFilters.length ) {
         /* add search and filter messages - buttons will remove filters/terms */
         activeFilters.forEach( f => {
@@ -140,13 +152,13 @@ function updateListFilterMessage() {
                 searchmessage = '<p>Searching spaces which contain text: ';
                 let termlist = [];
                 f.value.forEach( term => {
-                    termlist.push( '<button class="uol-chips__button search-term icon-remove" data-searchtext="' + term + '">' + term + '</button>' );
+                    termlist.push( '<button class="uol-chips__button search-term icon-remove" data-searchtext="' + term + '"><span class="uol-chips__text" role="text"><span class="hide-accessible">Cancel </span>' + term + '</span><span class="uol-chips__delete-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path fill="#000000" fill-rule="nonzero" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg></span></button>' );
                 });
                 searchmessage += termlist.join( ' or ' ) + '</p>';
             } else {
                 let filterdata = getFilterData( f.name );
                 if ( filterdata.options.length === 1 ) {
-                    filtermessage += '<p><button class="uol-chips__button filter-term icon-remove" data-termid="' + f.name + '_' + f.value + '">' + filterdata.message + '</button>';
+                    filtermessage += '<p><button class="uol-chips__button filter-term icon-remove" data-termid="' + f.name + '_' + f.value + '"><span class="uol-chips__text" role="text"><span class="hide-accessible">Cancel </span>' + filterdata.message + '</span><span class="uol-chips__delete-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path fill="#000000" fill-rule="nonzero" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg></span></button>';
                 } else {
                     filtermessage += '<p>' + filterdata.message;
                     let termlist = [];
@@ -157,32 +169,38 @@ function updateListFilterMessage() {
                                 termlabel = opt.label;
                             }
                         });
-                        termlist.push( '<button class="uol-chips__button filter-term icon-remove" data-termid="' + f.name + '_' + term + '"><span class="uol-chips__text" role="text"><span class="hide-accessible">Cancel</span>' + termlabel + '</span><span class="uol-chips__delete-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path fill="#000000" fill-rule="nonzero" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg></span></button>' );
+                        termlist.push( '<button class="uol-chips__button filter-term icon-remove" data-termid="' + f.name + '_' + term + '"><span class="uol-chips__text" role="text"><span class="hide-accessible">Cancel </span>' + termlabel + '</span><span class="uol-chips__delete-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path fill="#000000" fill-rule="nonzero" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg></span></button>' );
                     });
                     filtermessage += termlist.join( filterdata.additive ? ' and ': ' or ' ) + '</p>';
                 }
             }
         });
     }
+    /* add filter, search and results messages */
+    if ( ( searchmessage + filtermessage ) != '' && document.querySelectorAll( '.list-space:not(.hidden)' ).length > 0 ) {
+        container.innerHTML = searchmessage + filtermessage;
+        container.removeAttribute( 'hidden' );
+    }
+}
+
+function updateSpacesCountMessage() {
     /* get count of spaces */
     let spacetotal = document.querySelectorAll( '.list-space' ).length;
     let spacesShowing = spacetotal;
+    let msg = 'Showing ' + spacesShowing + ' of ' + spacetotal + ' spaces';
     /* decrease spaces count if some are hidden */
     if ( document.querySelectorAll( '.list-space.hidden' ) != null ) {
         spacesShowing -= document.querySelectorAll( '.list-space.hidden' ).length;
+        msg = 'Showing ' + spacesShowing + ' of ' + spacetotal + ' spaces';
         /* show zero results message */
         if ( spacesShowing == 0 ) {
-            resultsmessage = '<p class="noresults">Sorry, your search has found no results - try removing some of your search criteria.</p>';
+            msg = 'Sorry, your search has found no results - try removing some of your search criteria.';
         }
     }
-    /* add filter, search and results messages */
-    if ( ( searchmessage + filtermessage + resultsmessage ) != '' ) {
-        container.innerHTML = searchmessage + filtermessage + resultsmessage;
-        container.removeAttribute( 'hidden' );
-    }
     /* update spaces showing count */
-    document.getElementById( 'searchResultsSummary' ).textContent = 'Showing ' + spacesShowing + ' of ' + spacetotal + ' spaces';
+    document.getElementById( 'searchResultsSummary' ).textContent = msg;
 }
+
 /**
  * Gets the current status of all filters
  * @return {Object} activeFilters
