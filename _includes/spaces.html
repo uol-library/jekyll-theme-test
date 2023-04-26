@@ -46,7 +46,7 @@
     </div>
     {% if space.image != "" and space.imagealt != "" %}
     <div class="uol-results-items__item__image-container">
-        <img class="uol-results-items__item__img" src="{{ space.image }}" alt="{{ space.imagealt }}" loading="lazy">
+        <img class="uol-results-items__item__img" src="{{ space.image | absolute_url }}" alt="{{ space.imagealt }}" loading="lazy">
     </div>
     {% endif %}
 </article>
