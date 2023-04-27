@@ -9,7 +9,7 @@
             {%- for option in filter.options -%}
             <div class="uol-form__input--checkbox-wrapper">
                 <input class="uol-form__input--checkbox{% if filter.exclusive %} exclusive{% endif %}" type="checkbox" id="{{ filter.key }}_{{ option.key }}" data-filterkey="{{ filter.key }}" data-optionkey="{{ option.key }}" data-optionlabel="{{ option.label }}" name="{{ filter.key }}_{{ option.key }}" value="{{ option.key }}">
-                <label class="uol-form__input--checkbox-label" for="filter-{{ filter.key }}-{{ option.key }}" id="filter-{{ filter.key }}-{{ option.key }}-label">{{ option.label }}</label>
+                <label class="uol-form__input--checkbox-label" for="{{ filter.key }}-{{ option.key }}" id="{{ filter.key }}-{{ option.key }}-label">{{ option.label }}</label>
                 <span class="uol-form__input--checkbox-custom">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
                         <path fill="#000" fill-rule="nonzero" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path>
