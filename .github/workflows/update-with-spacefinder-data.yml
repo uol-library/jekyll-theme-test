@@ -1,19 +1,14 @@
 name: update-with-spacefinder-data
 on: workflow_dispatch
 jobs:
-  keep_file_updated:
+  update-pages:
     runs-on: ubuntu-latest
-    name: Keep file updated
+    name: Update pages from data file
     steps:
     - name: Checkout repo
-      id: checkout
       uses: actions/checkout@v3
-    - name: Update file
-      id: update_file
-      uses: TheLastProject/keep-remote-file-locally-up-to-date-action@v1
       with:
-        url: https://spacefinder.leeds.ac.uk/spaces.json
-        file_in_repo: _data/spaces.json
+        path: main
     - name: Setup Node
       uses: actions/setup-node@v3
       with:
