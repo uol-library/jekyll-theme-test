@@ -23,24 +23,24 @@ data:
   opening_hours:
     monday:
       open: true
-      from: "8:30"
-      to: "15:00"
+      from: "8:00"
+      to: "11:00"
     tuesday:
       open: true
-      from: "8:30"
-      to: "15:00"
+      from: "8:00"
+      to: "11:00"
     wednesday:
       open: true
-      from: "8:30"
-      to: "15:00"
+      from: "8:00"
+      to: "11:00"
     thursday:
       open: true
-      from: "8:30"
-      to: "15:00"
+      from: "8:00"
+      to: "11:00"
     friday:
       open: true
-      from: "8:30"
-      to: "15:00"
+      from: "8:00"
+      to: "11:00"
     saturday:
       open: false
       from: ""

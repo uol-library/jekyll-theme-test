@@ -29,27 +29,27 @@ data:
     monday:
       open: true
       from: "8:00"
-      to: "24:00"
+      to: "20:00"
     tuesday:
       open: true
       from: "8:00"
-      to: "24:00"
+      to: "20:00"
     wednesday:
       open: true
-      from: "10:00"
-      to: "24:00"
+      from: "8:00"
+      to: "20:00"
     thursday:
       open: true
-      from: "10:00"
-      to: "24:00"
+      from: "8:00"
+      to: "20:00"
     friday:
       open: true
-      from: "10:00"
+      from: "8:00"
       to: "24:00"
     saturday:
       open: true
       from: "10:00"
-      to: "24:00"
+      to: "17:00"
     sunday:
       open: true
       from: "10:00"

@@ -26,25 +26,25 @@ data:
   disabled_access: true
   opening_hours:
     monday:
-      open: true
-      from: "8:30"
-      to: "15:00"
+      open: false
+      from: ""
+      to: ""
     tuesday:
-      open: true
-      from: "8:30"
-      to: "15:00"
+      open: false
+      from: ""
+      to: ""
     wednesday:
-      open: true
-      from: "8:30"
-      to: "15:00"
+      open: false
+      from: ""
+      to: ""
     thursday:
-      open: true
-      from: "8:30"
-      to: "15:00"
+      open: false
+      from: ""
+      to: ""
     friday:
-      open: true
-      from: "8:30"
-      to: "15:00"
+      open: false
+      from: ""
+      to: ""
     saturday:
       open: false
       from: ""
