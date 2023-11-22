@@ -1,3 +1,31 @@
 .uol-results-items__item.hidden { display: none; }
 button.uol-chips__button { display: inline-flex; }
 div#listfilters p { font-size: 1.25rem; }
+input[type="search"].uol-form__input.uol-form__input--search {
+    &::-ms-clear,
+    &::-ms-reveal,
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration { 
+        -webkit-appearnce: auto;
+        appearance: auto;
+    }
+}
+@media (min-width: 64em) {
+    .uol-search-results .uol-map {
+        margin: 0.25rem 0.75rem 3rem;
+    }
+}
+@media (min-width: 48em) {
+    .uol-search-results .uol-map {
+        height: 382px;
+        margin-bottom: 1.5rem;
+    }
+}
+.uol-search-results .uol-map {
+    aspect-ratio: 1/1;
+    margin: 0.5rem 0.5rem 9px;
+    border: 1px solid #c9c8c5;
+    width: 100%;
+}

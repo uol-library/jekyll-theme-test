@@ -13,6 +13,9 @@ author:
   email: p.l.edwards@leeds.ac.uk
 description: >
   Test site for Jekyll Design System theme
+url: https://uol-library.github.io/
+baseurl: /spacefinder-ds
+
 # contact information
 contact:
   organisation: University of Leeds

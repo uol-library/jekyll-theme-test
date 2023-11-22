@@ -257,7 +257,7 @@ function getSpaceInfoWindowContent( space ) {
 	if ( space.building !== '' ) {
 		info.push( space.building );
 	}
-	let content = '<div class="spaceInfoWindow"><h3>'+space.title+'</h3>';
+	let content = '<div class="spaceInfoWindow"><h3><a href="'+spacefinder.imageBaseURL+'/'+space.slug+'">'+space.title+'</a></h3>';
 	content += '<p class="info">' + info.join(', ') + '</p>';
 	content += '<p class="description">' + space.description + '</p>';
 	content += '<button class="show-list">More info&hellip;</button></div>';
