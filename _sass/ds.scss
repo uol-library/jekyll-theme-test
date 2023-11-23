@@ -32,12 +32,13 @@ input[type="search"].uol-form__input.uol-form__input--search {
 ul.facilities {
 	list-style: none;
 	li[class^="icon-"] {
+        margin: 0;
 		padding: .2rem 0;
-		display:flex;
+		display: flex;
 		&::before, &::after {
 			margin-right: 1em;
 		    font-size: 24px;
-		    color: $color-link;
+		    color: $color-brand;
 		}
 	}
 }
