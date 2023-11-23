@@ -32,7 +32,7 @@
     {% if space.address != "" %}
         {% assign address = address | append: space.address %}
     {% endif %}
-<article class="uol-results-items__item list-space{{ typeclass }}{{ noiseclass }}{{ workclasses | prepend: " work_" }}{{ facilitiesclasses | prepend: " facilities_" }}{{ atmosphereclasses | prepend: " atmosphere_" }}{% if space.image != "" and space.imagealt != "" %} uol-results-items__item--has-image{% endif %}">
+<article data-id="{{ space.id }}" class="uol-results-items__item list-space{{ typeclass }}{{ noiseclass }}{{ workclasses | prepend: " work_" }}{{ facilitiesclasses | prepend: " facilities_" }}{{ atmosphereclasses | prepend: " atmosphere_" }}{% if space.image != "" and space.imagealt != "" %} uol-results-items__item--has-image{% endif %}">
     <div class="uol-results-items__item__text-container">
         <h2 class="uol-results-items__item__title">
             <a href="{{ space.slug }}" class="uol-results-items__item__link">{{ space.title }}</a>
