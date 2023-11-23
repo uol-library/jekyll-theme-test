@@ -45,7 +45,7 @@ layout: default
                   {%- for f in site.data.config.filters -%}
                     {%- if f.key == "facilities" -%}
                       {%- for opt in f.options -%}
-                        {% if opt.key == fac %}<li class="{{ opt.icon }}">{{ opt.label }}</li>{% endif %}
+                        {% if opt.key == fac %}<li class="facility {{ opt.icon }}">{{ opt.label }}</li>{% endif %}
                       {%- endfor -%}
                     {%- endif -%}
                   {%- endfor -%}
