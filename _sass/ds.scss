@@ -26,6 +26,29 @@ input[type="search"].uol-form__input.uol-form__input--search {
 .uol-search-results .uol-map {
     aspect-ratio: 1/1;
     margin: 0.5rem 0;
-    border: 1px solid #c9c8c5;
+    border: 1px solid transparent;
     width: 100%;
+}
+ul.facilities {
+	list-style: none;
+	li[class^="icon-"] {
+		padding: .2rem 0;
+		display:flex;
+		&::before, &::after {
+			margin-right: 1em;
+		    font-size: 24px;
+		    color: $color-link;
+		}
+	}
+}
+@media (min-width: 64em) {
+    .uol-search-results .uol-map {
+        margin: 0.25rem 0.75rem 3rem;
+    }
+}
+@media (min-width: 48em) {
+    ul.facilities li[class^="icon-"] {
+        float: left;
+        width: 50%;
+    }
 }
