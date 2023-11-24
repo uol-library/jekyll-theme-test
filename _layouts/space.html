@@ -22,7 +22,7 @@ layout: default
         </div>
         <div class="uol-page__content">
           <div class="uol-rich-text">
-            {% if page.data.image and page.data.imagealt %}
+            {% if page.data.image != "" and page.data.imagealt != "" %}
             <figure class="uol-featured-image">
                 <img class="uol-featured-image__img" src="{{ page.data.image | absolute_url }}" alt="{{ page.data.imagealt | escape }}">
             </figure>
@@ -51,8 +51,10 @@ layout: default
                   {%- endfor -%}
                 {%- endfor -%}
                 </ul>
+                <h3>Location</h3>
             </div>
           </div>
+          <div id="map" class="spacefinder-map" data-load="{{ page.data.id }}"></div>
         </div>
       </div>
     </div>
