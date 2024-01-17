@@ -43,22 +43,39 @@ document.addEventListener( 'DOMContentLoaded', () => {
         }
     });
     /* search action */
-    document.getElementById( 'search-submit' ).addEventListener( 'click', event => {
-        event.preventDefault();
-        let inputvalue = document.getElementById( 'search-input' ).value.replace( /[^a-zA-Z0-9 ]/g, '' ).trim();
-        if ( inputvalue.length > 1 ) {
-            document.getElementById( 'search-input' ).value = inputvalue;
-            /* trigger the viewfilter event */
-            event.target.dispatchEvent( new Event( 'viewfilter', { bubbles: true } ) );
-        }
-    });
-
+    if ( document.getElementById( 'search-submit' ) ) {
+        document.getElementById( 'search-submit' ).addEventListener( 'click', event => {
+            event.preventDefault();
+            let inputvalue = document.getElementById( 'search-input' ).value.replace( /[^a-zA-Z0-9 ]/g, '' ).trim();
+            if ( inputvalue.length > 1 ) {
+                document.getElementById( 'search-input' ).value = inputvalue;
+                /* trigger the viewfilter event */
+                event.target.dispatchEvent( new Event( 'viewfilter', { bubbles: true } ) );
+            }
+        });
+    }
     document.addEventListener( 'viewfilter', applyFilters );
 
     document.addEventListener( 'filtersapplied', updateListFilterMessage );
     document.addEventListener( 'filtersapplied', updateSpacesCountMessage );
     updateSpacesCountMessage() 
 });
+/* see if we need to zoom to a particular space */
+document.addEventListener( 'sfmapready', () => {
+    spacefinder.markergroup.on( 'animationend', zoomWhenLoaded );
+});
+function zoomWhenLoaded() {
+    let spaceid = document.getElementById('map').getAttribute('data-load');
+    if ( spaceid !== null ) {
+        let space = getSpaceById( spaceid );
+        spacefinder.markergroup.zoomToShowLayer( space.marker, function(){
+            let newCenter = L.latLng( space.lat, space.lng );
+            space.popup.setLatLng( newCenter ).openOn( spacefinder.map );
+        });
+    }
+    spacefinder.markergroup.off( 'animationend', zoomWhenLoaded );
+ }
+
 /**
  * Applies filters to the list of spaces
  */
@@ -198,7 +215,9 @@ function updateSpacesCountMessage() {
         }
     }
     /* update spaces showing count */
-    document.getElementById( 'searchResultsSummary' ).textContent = msg;
+    if ( document.getElementById( 'searchResultsSummary' ) ) {
+        document.getElementById( 'searchResultsSummary' ).textContent = msg;
+    }
 }
 
 /**
@@ -238,4 +257,24 @@ function getFilterStatus() {
     }
     return activeFilters;
 }
-    
+/**
+ * Returns HTML for an individual space's infoWindow 
+ * @param {Object} space 
+ * @returns {String} HTML content for space infoWindow
+ */
+function getSpaceInfoWindowContent( space ) {
+	let info = [];
+	info.push( space.space_type );
+	if ( space.floor !== '' ) {
+		info.push( space.floor );
+	}
+	if ( space.building !== '' ) {
+		info.push( space.building );
+	}
+	let content = '<div class="spaceInfoWindow"><h3><a href="'+spacefinder.imageBaseURL+'/'+space.slug+'">'+space.title+'</a></h3>';
+	content += '<p class="info">' + info.join(', ') + '</p>';
+	content += '<p class="description">' + space.description + '</p>';
+	content += '<button class="show-list">More info&hellip;</button></div>';
+	return content;
+}
+  

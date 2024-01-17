@@ -13,17 +13,17 @@ input[type="search"].uol-form__input.uol-form__input--search {
     }
 }
 @media (min-width: 64em) {
-    .uol-search-results .uol-map {
+    .spacefinder-map {
         margin: 0.25rem 0.75rem 3rem;
     }
 }
 @media (min-width: 48em) {
-    .uol-search-results .uol-map {
+    .spacefinder-map {
         height: 382px;
         margin-bottom: 1.5rem;
     }
 }
-.uol-search-results .uol-map {
+.spacefinder-map {
     aspect-ratio: 1/1;
     margin: 0.5rem 0;
     border: 1px solid transparent;
@@ -31,20 +31,28 @@ input[type="search"].uol-form__input.uol-form__input--search {
 }
 ul.facilities {
 	list-style: none;
+    padding:0;
+    margin:0;
 	li[class^="icon-"] {
-        margin: 0;
-		padding: .2rem 0;
-		display: flex;
-		&::before, &::after {
-			margin-right: 1em;
+        margin: 0 0 20px 0;
+        display: flex;
+        &::before, &::after {
+            margin: .3rem 1.5rem 0 0;
 		    font-size: 24px;
 		    color: $color-brand;
 		}
 	}
 }
 @media (min-width: 48em) {
+    ul.facilities {
+        columns: 2;
+        column-gap: 48px;
+        margin-right:48px;
+    }
+    /*
     ul.facilities li[class^="icon-"] {
         float: left;
         width: 50%;
     }
+    */
 }
