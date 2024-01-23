@@ -2,12 +2,17 @@
 {% for space in spaces %}
   {% if space.published %}
     {% assign typeclass = "" %}
+    {% assign typetext = "" %}
     {% assign noiseclass = "" %}
+    {% assign noisetext = "" %}
+    {% assign worktext = [] %}
+    {% assign atmospheretext = "" %}
     {% for filter in site.data.config.filters %}
       {% if filter.key == "space_type" %}
         {% for type in filter.options %}
           {% if type.label == space.space_type %}
             {% assign typeclass = type.key | prepend: " space_type_" %}
+            {% assign typetext = type.label %}
           {% endif %}
         {% endfor %}
       {% endif %}
@@ -15,11 +20,28 @@
         {% for level in filter.options %}
           {% if level.label == space.noise %}
             {% assign noiseclass = level.key | prepend: " noise_" %}
+            {% assign noisetext = level.label %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+      {% if filter.key == "work" %}
+        {% for work in filter.options %}
+          {% if work.label == space.work %}
+            {% assign worktext = worktext | append: "|" | append: work.label %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+      {% if filter.key == "atmosphere" %}
+        {% for atmosphere in filter.options %}
+          {% if atmosphere.label == space.atmosphere %}
+            {% assign atmospheretext = atmosphere.label %}
           {% endif %}
         {% endfor %}
       {% endif %}
     {% endfor %}
     {% assign workclasses = space.work | join: " work_" %}
+    {% assign workarr = worktext | split: "|" %}
+    {% assign worktext = workarr | join ", " %}
     {% assign facilitiesclasses = space.facilities | join: " facilities_" %}
     {% assign atmosphereclasses = space.atmosphere | join: " atmosphere_" %}
     {% assign address = "" %}
