@@ -1,61 +1,114 @@
-.uol-results-items__item.hidden { display: none; }
-button.uol-chips__button { display: inline-flex; }
-div#listfilters p { font-size: 1.25rem; }
+.uol-results-items__item.hidden {
+  display: none;
+}
+button.uol-chips__button {
+  display: inline-flex;
+}
+div#listfilters p {
+  font-size: 1.25rem;
+}
 input[type="search"].uol-form__input.uol-form__input--search {
-    &::-ms-clear,
-    &::-ms-reveal,
-    &::-webkit-search-decoration,
-    &::-webkit-search-cancel-button,
-    &::-webkit-search-results-button,
-    &::-webkit-search-results-decoration { 
-        -webkit-appearnce: auto;
-        appearance: auto;
-    }
-}
-@media (min-width: 64em) {
-    #map {
-        margin-right: 4rem;
-    }
-}
-@media (min-width: 48em) {
-    #map {
-        height: 382px;
-        margin-bottom: 1.5rem;
-    }
-}
-#map {
-    margin-left:.5rem;
-    margin-top: 0;
-    margin-right: .5rem;
-    margin-bottom: 0;
-    aspect-ratio: 1/1;
-    border: 1px solid transparent;
-    width: 100%;
+  &::-ms-clear,
+  &::-ms-reveal,
+  &::-webkit-search-decoration,
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-results-button,
+  &::-webkit-search-results-decoration {
+    -webkit-appearnce: auto;
+    appearance: auto;
+  }
 }
 ul.facilities {
-	list-style: none;
-    padding:0;
-    margin:0;
-	li[class^="icon-"] {
-        margin: 0 0 20px 0;
-        display: flex;
-        &::before, &::after {
-            margin: .3rem 1.5rem 0 0;
-		    font-size: 24px;
-		    color: $color-brand;
-		}
-	}
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li[class^="icon-"] {
+    margin: 0 0 20px 0;
+    display: flex;
+    &::before,
+    &::after {
+      margin: 0.3rem 1.5rem 0 0;
+      font-size: 24px;
+      color: $color-brand;
+    }
+  }
 }
 @media (min-width: 48em) {
-    ul.facilities {
-        columns: 2;
-        column-gap: 48px;
-        margin-right:48px;
-    }
-    /*
+  ul.facilities {
+    columns: 2;
+    column-gap: 48px;
+    margin-right: 48px;
+  }
+  /*
     ul.facilities li[class^="icon-"] {
         float: left;
         width: 50%;
     }
     */
+}
+/*
+ _________  ___  ___  ___  ________           ___  ________           ________  ___  ___  ___  _________   
+|\___   ___\\  \|\  \|\  \|\   ____\         |\  \|\   ____\         |\   ____\|\  \|\  \|\  \|\___   ___\ 
+\|___ \  \_\ \  \\\  \ \  \ \  \___|_        \ \  \ \  \___|_        \ \  \___|\ \  \\\  \ \  \|___ \  \_| 
+     \ \  \ \ \   __  \ \  \ \_____  \        \ \  \ \_____  \        \ \_____  \ \   __  \ \  \   \ \  \  
+      \ \  \ \ \  \ \  \ \  \|____|\  \        \ \  \|____|\  \        \|____|\  \ \  \ \  \ \  \   \ \  \ 
+       \ \__\ \ \__\ \__\ \__\____\_\  \        \ \__\____\_\  \         ____\_\  \ \__\ \__\ \__\   \ \__\
+        \|__|  \|__|\|__|\|__|\_________\        \|__|\_________\       |\_________\|__|\|__|\|__|    \|__|
+                             \|_________|            \|_________|       \|_________|                       
+                                                                                                           
+*/                                                                                                           
+
+.spacefinder-map {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #51504c;
+  aspect-ratio: 2/1;
+}
+.uol-search-results .spacefinder-map {
+  aspect-ratio: 1/1;
+  margin: 0.5rem 0.5rem 9px;
+  border: 1px solid #c9c8c5;
+}
+@media (max-width: 47.99em) {
+  .uol-search-results .spacefinder-map {
+    margin-bottom: 25px;
+  }
+}
+@media (min-width: 37.5em) and (max-width: 63.99em) {
+  .uol-search-results .spacefinder-map {
+    height: 382px;
+    width: 100%;
+  }
+}
+@media (max-width: 360px) {
+  .uol-search-results .spacefinder-map {
+    width: 95%;
+  }
+}
+@media (min-width: 48em) {
+  .uol-search-results .spacefinder-map {
+    height: 382px;
+    margin-bottom: 1.5rem;
+  }
+}
+@media (min-width: 64em) {
+  .uol-search-results .spacefinder-map {
+    margin: 0.25rem 0.75rem 3rem;
+  }
+}
+.uol-article .spacefinder-map + .uol-search-result__filters {
+  margin-bottom: 2rem !important;
+}
+@media (min-width: 48em) {
+  .uol-article .spacefinder-map + .uol-search-result__filters {
+    margin-bottom: 3rem !important;
+  }
+}
+.uol-article--form-map .spacefinder-map {
+  margin-bottom: 2rem !important;
+}
+@media (min-width: 48em) {
+  .uol-article--form-map .spacefinder-map {
+    margin-bottom: 3rem !important;
+  }
 }

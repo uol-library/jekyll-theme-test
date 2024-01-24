@@ -14,16 +14,6 @@
     width: 1px; 
 }
 
-/**
- * box-sizing reset
- * @see: https://css-tricks.com/box-sizing/
- */
-html {
-    box-sizing: border-box;
-}
-*, *:before, *:after {
-    box-sizing: inherit;
-}
 /* reset margins */
 body, h1, h2, h3, h4, p, figure, blockquote, dl, dd {
     margin: 0;
