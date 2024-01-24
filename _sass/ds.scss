@@ -13,19 +13,22 @@ input[type="search"].uol-form__input.uol-form__input--search {
     }
 }
 @media (min-width: 64em) {
-    .spacefinder-map {
-        margin: .5rem 3rem 1.5rem 0;
+    #map {
+        margin-right: 4rem;
     }
 }
 @media (min-width: 48em) {
-    .spacefinder-map {
+    #map {
         height: 382px;
-        margin: .5rem 0 1.5rem 0;
+        margin-bottom: 1.5rem;
     }
 }
-.spacefinder-map {
+#map {
+    margin-left:.5rem;
+    margin-top: 0;
+    margin-right: .5rem;
+    margin-bottom: 0;
     aspect-ratio: 1/1;
-    margin: .5rem 0 .5rem 0;
     border: 1px solid transparent;
     width: 100%;
 }
