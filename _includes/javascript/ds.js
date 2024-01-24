@@ -37,7 +37,6 @@ document.addEventListener( 'DOMContentLoaded', () => {
         } else if ( event.target.classList.contains( 'filter-term' ) ) {
             event.preventDefault();
             let termid = event.target.getAttribute( 'data-termid' );
-            console.log(termid);
             document.getElementById( termid ).checked = false;
             document.dispatchEvent( new Event( 'viewfilter', { bubbles: true } ) );
         }
@@ -51,13 +50,8 @@ document.addEventListener( 'DOMContentLoaded', () => {
             /* trigger the viewfilter event */
             event.target.dispatchEvent( new Event( 'viewfilter', { bubbles: true } ) );
         });
-        document.getElementById( 'search-input' ).addEventListener( 'search', event => {
-            console.log("search event");
-            event.target.dispatchEvent( new Event( 'viewfilter', { bubbles: true } ) );
-        });
     }
     document.addEventListener( 'viewfilter', applyFilters );
-
     document.addEventListener( 'filtersapplied', updateListFilterMessage );
     document.addEventListener( 'filtersapplied', updateSpacesCountMessage );
     updateSpacesCountMessage() 
