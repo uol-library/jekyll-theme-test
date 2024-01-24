@@ -47,11 +47,13 @@ document.addEventListener( 'DOMContentLoaded', () => {
         document.getElementById( 'search-submit' ).addEventListener( 'click', event => {
             event.preventDefault();
             let inputvalue = document.getElementById( 'search-input' ).value.replace( /[^a-zA-Z0-9 ]/g, '' ).trim();
-            if ( inputvalue.length > 1 ) {
-                document.getElementById( 'search-input' ).value = inputvalue;
-                /* trigger the viewfilter event */
-                event.target.dispatchEvent( new Event( 'viewfilter', { bubbles: true } ) );
-            }
+            document.getElementById( 'search-input' ).value = inputvalue;
+            /* trigger the viewfilter event */
+            event.target.dispatchEvent( new Event( 'viewfilter', { bubbles: true } ) );
+        });
+        document.getElementById( 'search-input' ).addEventListener( 'search', event => {
+            console.log("search event");
+            event.target.dispatchEvent( new Event( 'viewfilter', { bubbles: true } ) );
         });
     }
     document.addEventListener( 'viewfilter', applyFilters );

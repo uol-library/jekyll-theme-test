@@ -1,3 +1,25 @@
+/*
+████████╗██╗  ██╗██╗███████╗
+╚══██╔══╝██║  ██║██║██╔════╝
+   ██║   ███████║██║███████╗
+   ██║   ██╔══██║██║╚════██║
+   ██║   ██║  ██║██║███████║
+   ╚═╝   ╚═╝  ╚═╝╚═╝╚══════╝
+                            
+   ██╗███████╗                 
+   ██║██╔════╝                 
+   ██║███████╗                 
+   ██║╚════██║                 
+   ██║███████║                 
+   ╚═╝╚══════╝                 
+                            
+   ███████╗██╗  ██╗██╗████████╗
+   ██╔════╝██║  ██║██║╚══██╔══╝
+   ███████╗███████║██║   ██║   
+   ╚════██║██╔══██║██║   ██║   
+   ███████║██║  ██║██║   ██║   
+   ╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝   
+*/
 .uol-results-items__item.hidden {
   display: none;
 }
@@ -7,17 +29,13 @@ button.uol-chips__button {
 div#listfilters p {
   font-size: 1.25rem;
 }
-input[type="search"].uol-form__input.uol-form__input--search {
-  &::-ms-clear,
-  &::-ms-reveal,
-  &::-webkit-search-decoration,
-  &::-webkit-search-cancel-button,
-  &::-webkit-search-results-button,
-  &::-webkit-search-results-decoration {
-    -webkit-appearnce: auto;
-    appearance: auto;
-  }
+.uol-search-results__button-chips-container p {
+    margin-bottom: .2rem;
 }
+/**
+ * Facilities icon lists are implemented using spacefinder font rather
+ * than Design System due to lack of access to the DS build assets
+ */
 ul.facilities {
   list-style: none;
   padding: 0;
@@ -39,24 +57,10 @@ ul.facilities {
     column-gap: 48px;
     margin-right: 48px;
   }
-  /*
-    ul.facilities li[class^="icon-"] {
-        float: left;
-        width: 50%;
-    }
-    */
 }
 /*
- _________  ___  ___  ___  ________           ___  ________           ________  ___  ___  ___  _________   
-|\___   ___\\  \|\  \|\  \|\   ____\         |\  \|\   ____\         |\   ____\|\  \|\  \|\  \|\___   ___\ 
-\|___ \  \_\ \  \\\  \ \  \ \  \___|_        \ \  \ \  \___|_        \ \  \___|\ \  \\\  \ \  \|___ \  \_| 
-     \ \  \ \ \   __  \ \  \ \_____  \        \ \  \ \_____  \        \ \_____  \ \   __  \ \  \   \ \  \  
-      \ \  \ \ \  \ \  \ \  \|____|\  \        \ \  \|____|\  \        \|____|\  \ \  \ \  \ \  \   \ \  \ 
-       \ \__\ \ \__\ \__\ \__\____\_\  \        \ \__\____\_\  \         ____\_\  \ \__\ \__\ \__\   \ \__\
-        \|__|  \|__|\|__|\|__|\_________\        \|__|\_________\       |\_________\|__|\|__|\|__|    \|__|
-                             \|_________|            \|_________|       \|_________|                       
-                                                                                                           
-*/                                                                                                           
+ * These are lifted from the uol-iframe class which is used for google maps
+ */                                                                                                           
 
 .spacefinder-map {
   width: 100%;
