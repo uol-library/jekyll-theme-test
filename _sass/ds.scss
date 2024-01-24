@@ -14,18 +14,18 @@ input[type="search"].uol-form__input.uol-form__input--search {
 }
 @media (min-width: 64em) {
     .spacefinder-map {
-        margin: 0.25rem 0.75rem 3rem;
+        margin: .25rem .75rem 3rem;
     }
 }
 @media (min-width: 48em) {
     .spacefinder-map {
         height: 382px;
-        margin-bottom: 1.5rem;
+        margin-bottom: .5rem 0 1.5rem 0;
     }
 }
 .spacefinder-map {
     aspect-ratio: 1/1;
-    margin: 0.5rem 0;
+    margin: .5rem 0 .5rem 0;
     border: 1px solid transparent;
     width: 100%;
 }
