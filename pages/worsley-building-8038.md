@@ -12,6 +12,7 @@ data:
     - "disciplined"
     - "modern"
   facilities:
+    - "adjustable_furniture"
     - "large_desks"
     - "free_wifi"
     - "computers"
@@ -25,7 +26,7 @@ data:
     - "gender_neutral_toilets"
     - "wheelchair_accessible"
   title: "Worsley Building - 8.038"
-  description: "Cluster room with a variety of desks for individual or group study. 52 seat capacity."
+  description: "Cluster room with a variety of desks for individual or group study. 52 seat capacity. Height adjustable tdesks available."
   access: "University Staff and Students"
   space_type: "IT Cluster"
   address: "University of Leeds, LS2 9JT"
@@ -45,23 +46,23 @@ data:
   opening_hours:
     monday:
       open: true
-      from: "8:00"
+      from: "9:00"
       to: "18:00"
     tuesday:
       open: true
-      from: "8:00"
+      from: "9:00"
       to: "18:00"
     wednesday:
       open: true
-      from: "8:00"
+      from: "9:00"
       to: "18:00"
     thursday:
       open: true
-      from: "8:00"
+      from: "9:00"
       to: "18:00"
     friday:
       open: true
-      from: "8:00"
+      from: "9:00"
       to: "18:00"
     saturday:
       open: false
@@ -79,5 +80,18 @@ data:
   phone_text: ""
   lat: 53.80334949968224
   lng: -1.5561629834730435
+sectionmenu:
+  title: "Space types"
+  items:
+    - title: "Café"
+      url: "/#/space_type/caf"
+    - title: "General Seating Area"
+      url: "/#/space_type/generalseatingarea"
+    - title: "IT Cluster"
+      url: "/#/space_type/itcluster"
+    - title: "Library"
+      url: "/#/space_type/library"
+    - title: "Outdoor Seating Area"
+      url: "/#/space_type/outdoorseatingarea"
 
 ---

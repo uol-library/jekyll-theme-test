@@ -50,7 +50,7 @@ data:
       to: "17:00"
     saturday:
       open: true
-      from: "11:00"
+      from: "12:00"
       to: "17:00"
     sunday:
       open: false
@@ -84,5 +84,18 @@ data:
   phone_text: "Contact the Language Zone"
   lat: 53.807706
   lng: -1.552787
+sectionmenu:
+  title: "Space types"
+  items:
+    - title: "Café"
+      url: "/#/space_type/caf"
+    - title: "General Seating Area"
+      url: "/#/space_type/generalseatingarea"
+    - title: "IT Cluster"
+      url: "/#/space_type/itcluster"
+    - title: "Library"
+      url: "/#/space_type/library"
+    - title: "Outdoor Seating Area"
+      url: "/#/space_type/outdoorseatingarea"
 
 ---

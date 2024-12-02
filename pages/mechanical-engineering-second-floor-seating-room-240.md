@@ -82,5 +82,18 @@ data:
   phone_text: "Contact the School of Mechanical Engineering"
   lat: 53.80975434335515
   lng: -1.5555411348813653
+sectionmenu:
+  title: "Space types"
+  items:
+    - title: "Café"
+      url: "/#/space_type/caf"
+    - title: "General Seating Area"
+      url: "/#/space_type/generalseatingarea"
+    - title: "IT Cluster"
+      url: "/#/space_type/itcluster"
+    - title: "Library"
+      url: "/#/space_type/library"
+    - title: "Outdoor Seating Area"
+      url: "/#/space_type/outdoorseatingarea"
 
 ---

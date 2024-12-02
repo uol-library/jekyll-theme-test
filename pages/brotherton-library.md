@@ -52,15 +52,15 @@ data:
     friday:
       open: true
       from: "8:00"
-      to: "19:00"
+      to: "20:00"
     saturday:
       open: true
       from: "10:00"
-      to: "17:00"
+      to: "20:00"
     sunday:
       open: true
       from: "10:00"
-      to: "17:00"
+      to: "20:00"
   slug: "brotherton-library"
   floor: ""
   restriction: "Library Card needed"
@@ -95,5 +95,18 @@ data:
   phone_text: "Contact the Library"
   lat: 53.80789
   lng: -1.553329
+sectionmenu:
+  title: "Space types"
+  items:
+    - title: "Café"
+      url: "/#/space_type/caf"
+    - title: "General Seating Area"
+      url: "/#/space_type/generalseatingarea"
+    - title: "IT Cluster"
+      url: "/#/space_type/itcluster"
+    - title: "Library"
+      url: "/#/space_type/library"
+    - title: "Outdoor Seating Area"
+      url: "/#/space_type/outdoorseatingarea"
 
 ---

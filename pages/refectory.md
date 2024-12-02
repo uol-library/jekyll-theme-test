@@ -26,31 +26,31 @@ data:
     monday:
       open: true
       from: "8:00"
-      to: "14:30"
+      to: "18:30"
     tuesday:
       open: true
       from: "8:00"
-      to: "14:30"
+      to: "18:30"
     wednesday:
       open: true
       from: "8:00"
-      to: "14:30"
+      to: "18:30"
     thursday:
       open: true
       from: "8:00"
-      to: "14:30"
+      to: "18:30"
     friday:
       open: true
       from: "8:00"
-      to: "14:30"
+      to: "18:30"
     saturday:
       true: false
       from: "10:00"
-      to: "14:30"
+      to: "14:00"
     sunday:
       true: false
       from: "10:00"
-      to: "14:30"
+      to: "14:00"
   floor: "Ground floor and mezzanine"
   restriction: ""
   campusmap_url: "https://www.leeds.ac.uk/campusmap?location=17536"
@@ -82,5 +82,18 @@ data:
   phone_text: ""
   lat: 53.80685681
   lng: -1.55657117
+sectionmenu:
+  title: "Space types"
+  items:
+    - title: "Café"
+      url: "/#/space_type/caf"
+    - title: "General Seating Area"
+      url: "/#/space_type/generalseatingarea"
+    - title: "IT Cluster"
+      url: "/#/space_type/itcluster"
+    - title: "Library"
+      url: "/#/space_type/library"
+    - title: "Outdoor Seating Area"
+      url: "/#/space_type/outdoorseatingarea"
 
 ---

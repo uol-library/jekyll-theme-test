@@ -27,7 +27,7 @@ data:
     - "gender_neutral_toilets"
     - "wheelchair_accessible"
   title: "Chemistry and Chemistry West Block - 1.46 (Ingold)"
-  description: "Bright large and social cluster room with variety of desks. Comfortable chairs perfect for long hours of individual or group work. 71 seat capacity."
+  description: "Bright large and social cluster room with variety of desks. Comfortable chairs perfect for long hours of individual or group work. 71 seat capacity. Go through the Clothworkers Arch and through the small arch at the back of the courtyard. Follow the path at the back of the Brotherton Library round to the right, and enter the Chemistry building. Take the stairs or lift up one floor to the entrance to Ingold."
   access: "University Staff and Students"
   space_type: "IT Cluster"
   address: "University of Leeds, LS2 9JT"
@@ -73,7 +73,7 @@ data:
       open: false
       from: ""
       to: ""
-  image: ""
+  image: "/assets/photos/cluster-ingold.jpg"
   imagealt: "Chemistry and Chemistry West Block - 1.46 (Ingold)"
   slug: "chemistry-and-chemistry-west-block-146-ingold"
   published: true
@@ -81,5 +81,18 @@ data:
   phone_text: "Contact the School of Chemistry"
   lat: 53.808402196215155
   lng: -1.5536192337568269
+sectionmenu:
+  title: "Space types"
+  items:
+    - title: "Café"
+      url: "/#/space_type/caf"
+    - title: "General Seating Area"
+      url: "/#/space_type/generalseatingarea"
+    - title: "IT Cluster"
+      url: "/#/space_type/itcluster"
+    - title: "Library"
+      url: "/#/space_type/library"
+    - title: "Outdoor Seating Area"
+      url: "/#/space_type/outdoorseatingarea"
 
 ---

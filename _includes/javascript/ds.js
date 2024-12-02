@@ -54,7 +54,8 @@ document.addEventListener( 'DOMContentLoaded', () => {
     document.addEventListener( 'viewfilter', applyFilters );
     document.addEventListener( 'filtersapplied', updateListFilterMessage );
     document.addEventListener( 'filtersapplied', updateSpacesCountMessage );
-    updateSpacesCountMessage() 
+    updateSpacesCountMessage()
+    loadInitialFilter();
 });
 /* see if we need to zoom to a particular space */
 document.addEventListener( 'sfmapready', () => {
@@ -273,4 +274,23 @@ function getSpaceInfoWindowContent( space ) {
 	content += '<button class="show-list">More info&hellip;</button></div>';
 	return content;
 }
-  
+
+/**
+ * Checks the URL for a space_type filter
+ */
+function loadInitialFilter(){
+    if ( window.location.hash ) {
+        console.log(window.location.hash);
+        let hp = window.location.hash.split( '/' );
+        if ( hp.length === 3 ) {
+            if ( hp[1] == 'space_type' ) {
+                console.log(hp[2]);
+                let type_cbx = document.getElementById('space_type_'+hp[2]);
+                if ( type_cbx ) {
+                    type_cbx.checked = true;
+                    applyFilters();
+                }
+            }
+        }
+    }
+}

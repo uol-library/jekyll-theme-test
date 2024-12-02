@@ -1,90 +1,180 @@
 {
-    "facilities": [
-        "food_drink",
-        "daylight",
-        "large_desks",
-        "free_wifi",
-        "laptops_allowed",
-        "signal",
-        "outdoor_seating",
-        "toilets",
-        "refreshments",
-        "break",
-        "bike_racks",
-        "wheelchair_accessible",
-        "gender_neutral_toilets"
-    ],
-    "atmosphere": [
-        "relaxed",
-        "social",
-        "friendly"
-    ],
-    "access": "Anyone (public)",
-    "disabled_access": true,
-    "opening_hours": {
-        "monday": {
-            "open": true,
-            "from": "00:00",
-            "to": "24:00"
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "creativeWorkStatus": "Published",
+    "mainEntity": {
+        "@type": "CollegeOrUniversity",
+        "name": "Outside the Edward Boyle Library Edit Room café",
+        "description": "Outdoor seating situated outside the Edward Boyle Library",
+        "alternateName": "outside-the-edward-boyle-library-edit-room-cafe",
+        "url": "",
+        "sameAs": "",
+        "publicAccess": true,
+        "telephone": "",
+        "image": {
+            "@type": "ImageObject",
+            "contentUrl": "",
+            "description": "Outside the Edward Boyle Library Edit Room café"
         },
-        "tuesday": {
-            "open": true,
-            "from": "00:00",
-            "to": "24:00"
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "University of Leeds",
+            "addressRegion": "Leeds, West Yorkshire",
+            "postalCode": "LS2 9JT",
+            "streetAddress": "Ground floor, Edward Boyle Library"
         },
-        "wednesday": {
-            "open": true,
-            "from": "00:00",
-            "to": "24:00"
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 53.80618,
+            "longitude": -1.55431
         },
-        "thursday": {
-            "open": true,
-            "from": "00:00",
-            "to": "24:00"
-        },
-        "friday": {
-            "open": true,
-            "from": "00:00",
-            "to": "24:00"
-        },
-        "saturday": {
-            "open": true,
-            "from": "00:00",
-            "to": "24:00"
-        },
-        "sunday": {
-            "open": true,
-            "from": "00:00",
-            "to": "24:00"
-        }
-    },
-    "slug": "outside-the-edward-boyle-library-edit-room-cafe",
-    "floor": "Ground floor",
-    "restriction": "",
-    "campusmap_url": "",
-    "imagealt": "Outside the Edward Boyle Library Edit Room café",
-    "url": "",
-    "campusmap_ref": "",
-    "work": [
-        "friends",
-        "group"
-    ],
-    "twitter_screen_name": "",
-    "space_type": "Outdoor Seating Area",
-    "building": "Edward Boyle Library",
-    "address": "University of Leeds, LS2 9JT",
-    "location": "{\"type\":\"Point\",\"coordinates\":[-1.55431,53.80618]}",
-    "facebook_url": "",
-    "title": "Outside the Edward Boyle Library Edit Room café",
-    "tags": [],
-    "what3words": "///nest.snow.solar",
-    "noise": "Animated discussion",
-    "phone_number": "",
-    "restricted": "",
-    "id": 13,
-    "image": "",
-    "description": "Outdoor seating situated outside the Edward Boyle Library",
-    "published": true,
-    "url_text": "",
-    "phone_text": ""
+        "amenityFeature": [
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Food &amp; drink allowed",
+                "alternateName": "food_drink",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Natural daylight",
+                "alternateName": "daylight",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Large desks",
+                "alternateName": "large_desks",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Phone signal",
+                "alternateName": "signal",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Outdoor seating",
+                "alternateName": "outdoor_seating",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Toilets nearby",
+                "alternateName": "toilets",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Close to refreshments",
+                "alternateName": "refreshments",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Close to a place to take a break",
+                "alternateName": "break",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Bike racks",
+                "alternateName": "bike_racks",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Wheelchair accessible",
+                "alternateName": "wheelchair_accessible",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Gender neutral toilets",
+                "alternateName": "gender_neutral_toilets",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Animated discussion",
+                "alternateName": "animateddiscussion",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "With friends",
+                "alternateName": "friends",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "On a group project",
+                "alternateName": "group",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Relaxed",
+                "alternateName": "relaxed",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Social",
+                "alternateName": "social",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Friendly",
+                "alternateName": "friendly",
+                "value": true
+            }
+        ],
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "https://schema.org/Monday",
+                "opens": "00:00:00",
+                "closes": "24:00:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "https://schema.org/Tuesday",
+                "opens": "00:00:00",
+                "closes": "24:00:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "https://schema.org/Wednesday",
+                "opens": "00:00:00",
+                "closes": "24:00:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "https://schema.org/Thursday",
+                "opens": "00:00:00",
+                "closes": "24:00:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "https://schema.org/Friday",
+                "opens": "00:00:00",
+                "closes": "24:00:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "https://schema.org/Saturday",
+                "opens": "00:00:00",
+                "closes": "24:00:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "https://schema.org/Sunday",
+                "opens": "00:00:00",
+                "closes": "24:00:00"
+            }
+        ]
+    }
 }

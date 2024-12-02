@@ -47,23 +47,23 @@ data:
     monday:
       open: true
       from: "8:30"
-      to: "15:00"
+      to: "17:00"
     tuesday:
       open: true
       from: "8:30"
-      to: "15:00"
+      to: "17:00"
     wednesday:
       open: true
       from: "8:30"
-      to: "15:00"
+      to: "17:00"
     thursday:
       open: true
       from: "8:30"
-      to: "15:00"
+      to: "17:00"
     friday:
       open: true
       from: "8:30"
-      to: "15:00"
+      to: "17:00"
     saturday:
       open: false
       from: ""
@@ -80,5 +80,18 @@ data:
   phone_text: ""
   lat: 53.803461605737006
   lng: -1.5552662581655925
+sectionmenu:
+  title: "Space types"
+  items:
+    - title: "Café"
+      url: "/#/space_type/caf"
+    - title: "General Seating Area"
+      url: "/#/space_type/generalseatingarea"
+    - title: "IT Cluster"
+      url: "/#/space_type/itcluster"
+    - title: "Library"
+      url: "/#/space_type/library"
+    - title: "Outdoor Seating Area"
+      url: "/#/space_type/outdoorseatingarea"
 
 ---

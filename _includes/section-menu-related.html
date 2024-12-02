@@ -17,11 +17,20 @@
             <p class="uol-section-nav-related-content__item__text">{{ address }}</p>
             {% if page.data.campusmap_url && page.data.campusmap_url != "" %}
             <div class="uol-section-nav-related-content__item__contact-wrapper">
-               <a class="uol-section-nav-related-content__contact"  href="{{ page.data.campusmap_url }}">View on the campus map</a>
+               <a class="uol-section-nav-related-content__contact"  href="{{ page.data.campusmap_url }}" target="_it">View on the campus map</a>
             </div>
             {% endif %}
         </div>
         {% endif %}
+        <div class="uol-section-nav-related__item">
+            <h3 class="uol-section-nav-related-content__item__title">Access</h3>
+            {% if page.data.restricted %}
+            <p class="uol-section-nav-related-content__item__text">Open to {{ page.data.access }}{% if page.data.restriction and page.data.restriction != "" %} ({{ page.data.restriction }}){% endif %}</p>
+            {% else %}
+            <p class="uol-section-nav-related-content__item__text">Open to {{ page.data.access }}</p>
+            {% endif %}        
+        </div>
+        {% if page.data.url_text != "" or page.data.phone_text != "" %}
         <div class="uol-section-nav-related__item">
             <h3 class="uol-section-nav-related-content__item__title">Contacts</h3>
             {% if page.data.url and page.data.url != "" and page.data.url_text and page.data.url_text != "" %}
@@ -40,17 +49,18 @@
             </div>
             {% endif %}
         </div>
+        {% endif %}
         {% if page.data.twitter_screen_name != "" or page.data.facebook_url != "" %}
         <div class="uol-section-nav-related__item">
             <h3 class="uol-section-nav-related-content__item__title">Follow us</h3>
             {% if page.data.twitter_screen_name != "" %}
             <div class="uol-section-nav-related-content__item__contact-wrapper">
-                <a class="uol-section-nav-related-content__contact" href="https://twitter.com/{{ page.data.twitter_screen_name }}">Follow {{ page.data.twitter_screen_name }} on twitter</a>
+                <a class="uol-section-nav-related-content__contact" href="https://twitter.com/{{ page.data.twitter_screen_name }}" target="_it">Follow {{ page.data.twitter_screen_name }} on twitter</a>
             </div>
             {% endif %}
             {% if page.data.facebook_url != "" %}
             <div class="uol-section-nav-related-content__item__contact-wrapper">
-                <a class="uol-section-nav-related-content__contact" href="{{ page.data.facebook_url }}">Follow {{ page.data.facebook_url | replace: 'https://www.facebook.com/', '' }} on facebook</a>
+                <a class="uol-section-nav-related-content__contact" href="{{ page.data.facebook_url }}" target="_it">Follow {{ page.data.facebook_url | replace: 'https://www.facebook.com/', '' }} on facebook</a>
             </div>
             {% endif %}
         </div>

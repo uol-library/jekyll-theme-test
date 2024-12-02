@@ -58,7 +58,7 @@ data:
   campusmap_url: "https://www.leeds.ac.uk/campusmap?location=17382"
   published: true
   imagealt: "Chemistry and Chemistry West Block - 140 (Cohen)"
-  url: "https://mytimetable.leeds.ac.uk/link?timetable.id=202223!location!6856E1BEE4EE6ABF22261FF5840C4E61"
+  url: "https://mytimetable.leeds.ac.uk/link?timetable.id=202425!location!5216C608F8794D77F15FA9D195AB1EAF"
   campusmap_ref: "55"
   work:
     - "private"
@@ -74,11 +74,24 @@ data:
   phone_number: "0113 343 6543"
   restricted: true
   id: 46
-  image: ""
-  description: "Large room with lines of computer desks. Silent and busy study space. 96 seat capacity."
-  url_text: "View timetable for Chemistry and Chemistry West Block - 140 (Cohen)"
+  image: "/assets/photos/cluster-chem-140.jpg"
+  description: "Large room with lines of computer desks. Silent and busy study space. 96 seat capacity. Cohen can be used as one large teaching space, or separated by a partition wall into Cohen A and Cohen B. From Parkinson Court, go up the stairs at the Cafe end and turn right at the top of the stairs. Turn right again through the double doors. Take the first left into the cluster."
+  url_text: "View timetable for Cohen A and B Cluster"
   phone_text: "Contact the School of Chemistry"
   lat: 53.808402196215155
   lng: -1.5529769303236765
+sectionmenu:
+  title: "Space types"
+  items:
+    - title: "Café"
+      url: "/#/space_type/caf"
+    - title: "General Seating Area"
+      url: "/#/space_type/generalseatingarea"
+    - title: "IT Cluster"
+      url: "/#/space_type/itcluster"
+    - title: "Library"
+      url: "/#/space_type/library"
+    - title: "Outdoor Seating Area"
+      url: "/#/space_type/outdoorseatingarea"
 
 ---

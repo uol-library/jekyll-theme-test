@@ -57,7 +57,7 @@ data:
   campusmap_url: "https://www.leeds.ac.uk/campusmap?location=17420"
   published: true
   imagealt: "Esther Simpson Building - 109"
-  url: "https://mytimetable.leeds.ac.uk/link?timetable.id=202223!location!6856E1BEE4EE6ABF22261FF5840C4D26"
+  url: "https://mytimetable.leeds.ac.uk/link?timetable.id=202425!location!5216C608F8794D77F15FA9D195AB1D9B"
   campusmap_ref: "12"
   work:
     - "private"
@@ -80,5 +80,18 @@ data:
   phone_text: ""
   lat: 53.80639358717509
   lng: -1.559575562464403
+sectionmenu:
+  title: "Space types"
+  items:
+    - title: "Café"
+      url: "/#/space_type/caf"
+    - title: "General Seating Area"
+      url: "/#/space_type/generalseatingarea"
+    - title: "IT Cluster"
+      url: "/#/space_type/itcluster"
+    - title: "Library"
+      url: "/#/space_type/library"
+    - title: "Outdoor Seating Area"
+      url: "/#/space_type/outdoorseatingarea"
 
 ---

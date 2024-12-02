@@ -3,13 +3,14 @@ layout: space
 permalink: /parkinson-building-b26/
 data:
   id: 60
-  location: "{\"type\":\"Point\",\"coordinates\":[-1.552550512914537,53.80789891535809]}"
+  location: "{\"type\":\"Point\",\"coordinates\":[-1.552668530103729,53.80789891535809]}"
   work:
     - "private"
     - "close"
   atmosphere:
     - "disciplined"
   facilities:
+    - "adjustable_furniture"
     - "daylight"
     - "views"
     - "large_desks"
@@ -18,15 +19,13 @@ data:
     - "laptops_allowed"
     - "sockets"
     - "signal"
-    - "whiteboards"
-    - "projector"
     - "toilets"
     - "break"
     - "bike_racks"
     - "gender_neutral_toilets"
     - "wheelchair_accessible"
   title: "Parkinson Building - B.26"
-  description: "Cluster room surrounded by big windows with high views of the University campus. Perfect for focused study with acess to computers. 15 seat capacity."
+  description: "Perfect for focused study with access to computers. 15 seat capacity - height adjustable desks available. From Parkinson Court use the stairs at the opposite end from the Café and go down to the basement. Go through the doors under the display screen and turn right. Follow the corridor to the right. B26 is the door at the end of the corridor."
   access: "University Staff and Students"
   space_type: "IT Cluster"
   address: "University of Leeds, LS2 9JT"
@@ -41,37 +40,37 @@ data:
   facebook_url: ""
   campusmap_url: "https://www.leeds.ac.uk/campusmap?location=17525"
   campusmap_ref: "60"
-  noise: "Whispers"
+  noise: "Strictly silent"
   tags: []
   opening_hours:
     monday:
       open: true
       from: "9:00"
-      to: "20:30"
+      to: "18:00"
     tuesday:
       open: true
       from: "9:00"
-      to: "20:30"
+      to: "18:00"
     wednesday:
       open: true
       from: "9:00"
-      to: "20:30"
+      to: "18:00"
     thursday:
       open: true
       from: "9:00"
-      to: "20:30"
+      to: "18:00"
     friday:
       open: true
       from: "9:00"
-      to: "19:00"
+      to: "18:00"
     saturday:
-      open: true
-      from: "10:00"
-      to: "17:00"
+      open: false
+      from: ""
+      to: ""
     sunday:
-      open: true
-      from: "10:00"
-      to: "17:00"
+      open: false
+      from: ""
+      to: ""
   image: ""
   imagealt: "Parkinson Building - B.26"
   slug: "parkinson-building-b26"
@@ -79,6 +78,19 @@ data:
   url_text: ""
   phone_text: ""
   lat: 53.80789891535809
-  lng: -1.552550512914537
+  lng: -1.552668530103729
+sectionmenu:
+  title: "Space types"
+  items:
+    - title: "Café"
+      url: "/#/space_type/caf"
+    - title: "General Seating Area"
+      url: "/#/space_type/generalseatingarea"
+    - title: "IT Cluster"
+      url: "/#/space_type/itcluster"
+    - title: "Library"
+      url: "/#/space_type/library"
+    - title: "Outdoor Seating Area"
+      url: "/#/space_type/outdoorseatingarea"
 
 ---

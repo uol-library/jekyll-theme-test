@@ -4,6 +4,8 @@
   "description": "Spacefinder app redeveloped in the University of Leeds Design System",
   "main": "index.js",
   "scripts": {
+    "concat": "node _scripts/concat.js",
+    "convert": "node _scripts/convert.js",
     "build": "node _scripts/generate-spaces.js"
   },
   "repository": {

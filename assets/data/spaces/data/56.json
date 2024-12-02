@@ -1,97 +1,224 @@
 {
-    "facilities": [
-        "daylight",
-        "views",
-        "large_desks",
-        "free_wifi",
-        "computers",
-        "laptops_allowed",
-        "sockets",
-        "signal",
-        "projector",
-        "toilets",
-        "refreshments",
-        "break",
-        "bike_racks",
-        "gender_neutral_toilets",
-        "wheelchair_accessible",
-        "blue_badge_parking",
-        "accessible_toilets"
-    ],
-    "atmosphere": [
-        "relaxed",
-        "modern",
-        "inspiring",
-        "cosy",
-        "social",
-        "friendly"
-    ],
-    "access": "University Staff and Students",
-    "disabled_access": true,
-    "opening_hours": {
-        "monday": {
-            "open": true,
-            "from": "9:00",
-            "to": "18:00"
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "creativeWorkStatus": "Published",
+    "mainEntity": {
+        "@type": "CollegeOrUniversity",
+        "name": "Irene Manton Building - 7.90",
+        "description": "Rows of desks with a full left side of windows that are facing a beautiful side of campus allowing plenty of natural light into the study area. 41 seat capacity.",
+        "alternateName": "irene-manton-building-790",
+        "url": "https://mytimetable.leeds.ac.uk/link?timetable.id=202223!location!6856E1BEE4EE6ABF22261FF5840C4F62",
+        "sameAs": "https://www.leeds.ac.uk/campusmap?location=17462",
+        "publicAccess": false,
+        "telephone": "",
+        "image": {
+            "@type": "ImageObject",
+            "contentUrl": "",
+            "description": "Irene Manton Building - 7.90"
         },
-        "tuesday": {
-            "open": true,
-            "from": "9:00",
-            "to": "18:00"
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "University of Leeds",
+            "addressRegion": "Leeds, West Yorkshire",
+            "postalCode": "LS2 9JT",
+            "streetAddress": "Level 7, Irene Manton Building"
         },
-        "wednesday": {
-            "open": true,
-            "from": "9:00",
-            "to": "18:00"
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 53.80446980623904,
+            "longitude": -1.5548974249272625
         },
-        "thursday": {
-            "open": true,
-            "from": "9:00",
-            "to": "18:00"
-        },
-        "friday": {
-            "open": true,
-            "from": "9:00",
-            "to": "18:00"
-        },
-        "saturday": {
-            "open": false,
-            "from": "",
-            "to": ""
-        },
-        "sunday": {
-            "open": false,
-            "from": "",
-            "to": ""
-        }
-    },
-    "slug": "irene-manton-building-790",
-    "floor": "Level 7",
-    "restriction": "",
-    "campusmap_url": "https://www.leeds.ac.uk/campusmap?location=17462",
-    "published": true,
-    "imagealt": "Irene Manton Building - 7.90",
-    "url": "https://mytimetable.leeds.ac.uk/link?timetable.id=202223!location!6856E1BEE4EE6ABF22261FF5840C4F62",
-    "campusmap_ref": "91",
-    "work": [
-        "private",
-        "close",
-        "friends"
-    ],
-    "twitter_screen_name": "",
-    "space_type": "IT Cluster",
-    "building": "Irene Manton Building",
-    "address": "University of Leeds, LS2 9JT",
-    "location": "{\"type\":\"Point\",\"coordinates\":[-1.5548974249272625,53.80446980623904]}",
-    "facebook_url": "",
-    "title": "Irene Manton Building - 7.90",
-    "tags": [],
-    "noise": "Whispers",
-    "phone_number": "",
-    "restricted": true,
-    "id": 56,
-    "image": "",
-    "description": "Rows of desks with a full left side of windows that are facing a beautiful side of campus allowing plenty of natural light into the study area. 41 seat capacity.",
-    "url_text": "View timetable for Irene Manton Building - 7.90",
-    "phone_text": ""
+        "amenityFeature": [
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Natural daylight",
+                "alternateName": "daylight",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Attractive views out of the window",
+                "alternateName": "views",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Large desks",
+                "alternateName": "large_desks",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Computers",
+                "alternateName": "computers",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Plug Sockets",
+                "alternateName": "sockets",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Phone signal",
+                "alternateName": "signal",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Projector",
+                "alternateName": "projector",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Toilets nearby",
+                "alternateName": "toilets",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Close to refreshments",
+                "alternateName": "refreshments",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Close to a place to take a break",
+                "alternateName": "break",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Bike racks",
+                "alternateName": "bike_racks",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Gender neutral toilets",
+                "alternateName": "gender_neutral_toilets",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Wheelchair accessible",
+                "alternateName": "wheelchair_accessible",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Parking for blue badge holders",
+                "alternateName": "blue_badge_parking",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Toilets accessible to disabled people",
+                "alternateName": "accessible_toilets",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Whispers",
+                "alternateName": "whispers",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Alone, in private",
+                "alternateName": "private",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Where others are working",
+                "alternateName": "close",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "With friends",
+                "alternateName": "friends",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Relaxed",
+                "alternateName": "relaxed",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Modern",
+                "alternateName": "modern",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Inspiring",
+                "alternateName": "inspiring",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Cosy",
+                "alternateName": "cosy",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Social",
+                "alternateName": "social",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Friendly",
+                "alternateName": "friendly",
+                "value": true
+            }
+        ],
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "https://schema.org/Monday",
+                "opens": "09:00:00",
+                "closes": "18:00:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "https://schema.org/Tuesday",
+                "opens": "09:00:00",
+                "closes": "18:00:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "https://schema.org/Wednesday",
+                "opens": "09:00:00",
+                "closes": "18:00:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "https://schema.org/Thursday",
+                "opens": "09:00:00",
+                "closes": "18:00:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "https://schema.org/Friday",
+                "opens": "09:00:00",
+                "closes": "18:00:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "https://schema.org/Saturday"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "https://schema.org/Sunday"
+            }
+        ]
+    }
 }

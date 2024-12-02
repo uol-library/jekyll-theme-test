@@ -29,39 +29,39 @@ data:
   opening_hours:
     monday:
       open: true
-      from: "8:00"
-      to: "18:00"
+      from: "0:00"
+      to: "24:00"
     tuesday:
       open: true
-      from: "8:00"
-      to: "18:00"
+      from: "0:00"
+      to: "24:00"
     wednesday:
       open: true
-      from: "8:00"
-      to: "18:00"
+      from: "0:00"
+      to: "24:00"
     thursday:
       open: true
-      from: "8:00"
-      to: "18:00"
+      from: "0:00"
+      to: "24:00"
     friday:
       open: true
-      from: "8:00"
-      to: "18:00"
+      from: "0:00"
+      to: "24:00"
     saturday:
-      open: false
-      from: ""
-      to: ""
+      open: true
+      from: "0:00"
+      to: "24:00"
     sunday:
-      open: false
-      from: ""
-      to: ""
+      open: true
+      from: "0:00"
+      to: "24:00"
   slug: "chemical-and-process-engineering-g06"
   floor: "Ground floor"
-  restriction: ""
+  restriction: "Access to the cluster is via an <a href=\"https://it.leeds.ac.uk/it?id=clusters\" target=\"_it\">entrance code available on the IT website</a>"
   campusmap_url: "https://www.leeds.ac.uk/campusmap?location=17380"
   published: true
-  imagealt: "Chemical and Process Engineering - G06"
-  url: "https://mytimetable.leeds.ac.uk/link?timetable.id=202223!location!6856E1BEE4EE6ABF22261FF5840C4D8D"
+  imagealt: "Entrance to G06 at the corner of Woodhouse Lane and Clarendon Road (wheelchair access is available from the Engineering foyer via a lift)"
+  url: "https://mytimetable.leeds.ac.uk/link?timetable.id=202425!location!5216C608F8794D77F15FA9D195AB1DF7"
   campusmap_ref: "48"
   work:
     - "private"
@@ -72,7 +72,7 @@ data:
   space_type: "IT Cluster"
   building: "Chemical and Process Engineering"
   address: "University of Leeds, LS2 9JT"
-  location: "{\"type\":\"Point\",\"coordinates\":[-1.55714428,53.81015521]}"
+  location: "{\"type\":\"Point\",\"coordinates\":[-1.5563105415915899,53.810493169467485]}"
   facebook_url: ""
   title: "Chemical and Process Engineering - G06"
   tags: []
@@ -80,11 +80,24 @@ data:
   phone_number: "0113 343 2444"
   restricted: true
   id: 42
-  image: ""
-  description: "24 hour cluster with rows of desks. Perfect for day or night social studying with access to water fountain. 83 seat capacity"
+  image: "/assets/photos/cluster-cape-g06.jpg"
+  description: "24 hour cluster with rows of desks. Perfect for day or night social studying with access to water fountain. 83 seat capacity. There are steps at the entrance to the cluster (from Woodhouse Lane). There is a wheelchair lift from the Engineering entrance foyer, but this can only be operated under supervision of reception staff who are available Monday - Friday, 8.45am - 5pm."
   url_text: "View timetable for Chemical and Process Engineering - G06"
   phone_text: "Contact the School of Chemical and Process Engineering"
-  lat: 53.81015521
-  lng: -1.55714428
+  lat: 53.810493169467485
+  lng: -1.5563105415915899
+sectionmenu:
+  title: "Space types"
+  items:
+    - title: "Café"
+      url: "/#/space_type/caf"
+    - title: "General Seating Area"
+      url: "/#/space_type/generalseatingarea"
+    - title: "IT Cluster"
+      url: "/#/space_type/itcluster"
+    - title: "Library"
+      url: "/#/space_type/library"
+    - title: "Outdoor Seating Area"
+      url: "/#/space_type/outdoorseatingarea"
 
 ---

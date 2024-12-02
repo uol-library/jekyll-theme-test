@@ -1,0 +1,8 @@
+{% assign item = include.item %}
+{% if item.url %}
+<li class="uol-section-nav__item ">
+  <a class="uol-section-nav__link" href="{{ item.url | absolute_url }}"{% if page.data.space_type == item.title %} aria-current="page"{% endif %}>
+    <span class="uol-section-nav__item__label">{{ item.title }}</span>
+  </a>
+</li>
+{% endif %}

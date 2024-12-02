@@ -17,7 +17,7 @@ data:
   restricted: true
   restriction: "Follow timetable link to check when room is free"
   disabled_access: true
-  url: "https://mytimetable.leeds.ac.uk/link?timetable.id=202223!location!6856E1BEE4EE6ABF22261FF5840C4DA1"
+  url: "https://mytimetable.leeds.ac.uk/link?timetable.id=202425!location!5216C608F8794D77F15FA9D195AB1E0A"
   campusmap_url: "https://www.leeds.ac.uk/campusmap?location=17591"
   campusmap_ref: "95"
   booking_url: ""
@@ -78,5 +78,18 @@ data:
   phone_text: ""
   lat: 53.8033012
   lng: -1.555752941
+sectionmenu:
+  title: "Space types"
+  items:
+    - title: "Café"
+      url: "/#/space_type/caf"
+    - title: "General Seating Area"
+      url: "/#/space_type/generalseatingarea"
+    - title: "IT Cluster"
+      url: "/#/space_type/itcluster"
+    - title: "Library"
+      url: "/#/space_type/library"
+    - title: "Outdoor Seating Area"
+      url: "/#/space_type/outdoorseatingarea"
 
 ---

@@ -21,7 +21,34 @@ pages.forEach( filename => {
 /* create pages for each space with all data in frontmatter */
 spaceJSON.forEach( space => {
     if ( space.published ) {
-        let spacedata = { data: space };
+        let spacedata = { 
+            data: space,
+            sectionmenu: {
+                title: "Space types",
+                items: [
+                    {
+                        title: "Café",
+                        url: "/#/space_type/caf"
+                    },
+                    {
+                        title: "General Seating Area",
+                        url: "/#/space_type/generalseatingarea"
+                    },
+                    {
+                        title: "IT Cluster",
+                        url: "/#/space_type/itcluster"
+                    },
+                    {
+                        title: "Library",
+                        url: "/#/space_type/library"
+                    },
+                    {
+                        title: "Outdoor Seating Area",
+                        url: "/#/space_type/outdoorseatingarea"
+                    }
+                ]
+            }
+        };
         var itemYAML = "---\nlayout: space\npermalink: /" + space.slug + "/\n" + YAML.stringify( spacedata ) + "\n---\n";
         fs.writeFile( path.resolve( __dirname, '../pages/', space.slug + '.md' ), itemYAML, err => {
             if (err) {

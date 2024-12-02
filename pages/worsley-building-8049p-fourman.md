@@ -9,6 +9,7 @@ data:
     - "laptops_allowed"
     - "sockets"
     - "signal"
+    - "printers_copiers"
     - "projector"
     - "toilets"
     - "bike_racks"
@@ -22,23 +23,23 @@ data:
   opening_hours:
     monday:
       open: true
-      from: "8:00"
+      from: "9:00"
       to: "18:00"
     tuesday:
       open: true
-      from: "8:00"
+      from: "9:00"
       to: "18:00"
     wednesday:
       open: true
-      from: "8:00"
+      from: "9:00"
       to: "18:00"
     thursday:
       open: true
-      from: "8:00"
+      from: "9:00"
       to: "18:00"
     friday:
       open: true
-      from: "8:00"
+      from: "9:00"
       to: "18:00"
     saturday:
       open: false
@@ -54,7 +55,7 @@ data:
   campusmap_url: "https://www.leeds.ac.uk/campusmap?location=17591"
   published: true
   imagealt: "Worsley Building - 8.049P (Fourman)"
-  url: "https://mytimetable.leeds.ac.uk/link?timetable.id=202223!location!6856E1BEE4EE6ABF22261FF5840C4F01"
+  url: "https://mytimetable.leeds.ac.uk/link?timetable.id=202425!location!5216C608F8794D77F15FA9D195AB1EFE"
   campusmap_ref: "95"
   work:
     - "private"
@@ -65,17 +66,30 @@ data:
   address: "University of Leeds, LS2 9JT"
   location: "{\"type\":\"Point\",\"coordinates\":[-1.5550257269226497,53.80346750761152]}"
   facebook_url: ""
-  title: "Worsley Building - 8.049P (Fourman)"
+  title: "Worsley Building - 8.049P (Fourman Parkinson)"
   tags: []
   noise: "Whispers"
   phone_number: ""
   restricted: true
   id: 70
-  image: ""
-  description: "Large room with computers available. 50 seat capacity."
+  image: "/assets/photos/cluster-fourman-o-p.jpg"
+  description: "Large room with computers available. 50 seat capacity. From the Worsley Airport Lounge on Level 7 walk through the double doors near the ATM cash machine. Take a lift or stairs up to level 8. The doors to Fourman O and P are on the corridor by the lifts."
   url_text: "View timetable for Worsley Building - 8.049P (Fourman)"
   phone_text: ""
   lat: 53.80346750761152
   lng: -1.5550257269226497
+sectionmenu:
+  title: "Space types"
+  items:
+    - title: "Café"
+      url: "/#/space_type/caf"
+    - title: "General Seating Area"
+      url: "/#/space_type/generalseatingarea"
+    - title: "IT Cluster"
+      url: "/#/space_type/itcluster"
+    - title: "Library"
+      url: "/#/space_type/library"
+    - title: "Outdoor Seating Area"
+      url: "/#/space_type/outdoorseatingarea"
 
 ---

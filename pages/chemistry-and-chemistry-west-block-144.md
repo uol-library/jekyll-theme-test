@@ -17,13 +17,14 @@ data:
     - "computers"
     - "laptops_allowed"
     - "whiteboards"
+    - "printers_copiers"
     - "projector"
     - "toilets"
     - "bike_racks"
     - "gender_neutral_toilets"
     - "wheelchair_accessible"
   title: "Chemistry and Chemistry West Block - 1.44"
-  description: "Private study space for focused study. 23 seat capacity"
+  description: "Private study space for focused study. 23 seat capacity. Go through the Clothworkers Arch and through the small arch at the back of the courtyard. Follow the path at the back of the Brotherton Library round to the right, and enter the Chemistry building. Take the stairs or lift up one floor and enter Ingold. Cross the cluster towards the other set of double doors - the entrance to Chemistry 1.44 is on your left just before you exit Ingold."
   access: "University Staff and Students"
   space_type: "IT Cluster"
   address: "University of Leeds, LS2 9JT"
@@ -44,23 +45,23 @@ data:
     monday:
       open: true
       from: "9:00"
-      to: "18:00"
+      to: "17:00"
     tuesday:
       open: true
       from: "9:00"
-      to: "18:00"
+      to: "17:00"
     wednesday:
       open: true
       from: "9:00"
-      to: "18:00"
+      to: "17:00"
     thursday:
       open: true
       from: "9:00"
-      to: "18:00"
+      to: "17:00"
     friday:
       open: true
       from: "9:00"
-      to: "18:00"
+      to: "17:00"
     saturday:
       open: false
       from: ""
@@ -69,13 +70,26 @@ data:
       open: false
       from: ""
       to: ""
-  image: ""
-  imagealt: "Chemistry and Chemistry West Block - 1.44"
+  image: "/assets/photos/cluster-chem-144.jpg"
+  imagealt: "Photo showing the entrance to Chemistry 1.44 via the arch at the back of Clothworker's courtyard by the Great Hall"
   slug: "chemistry-and-chemistry-west-block-144"
   published: true
-  url_text: ""
+  url_text: "View timetable for Chemistry 1.44"
   phone_text: "Contact the School of Chemistry"
   lat: 53.8086589285449
   lng: -1.5536192337568269
+sectionmenu:
+  title: "Space types"
+  items:
+    - title: "Café"
+      url: "/#/space_type/caf"
+    - title: "General Seating Area"
+      url: "/#/space_type/generalseatingarea"
+    - title: "IT Cluster"
+      url: "/#/space_type/itcluster"
+    - title: "Library"
+      url: "/#/space_type/library"
+    - title: "Outdoor Seating Area"
+      url: "/#/space_type/outdoorseatingarea"
 
 ---

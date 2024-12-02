@@ -1,89 +1,188 @@
 {
-    "id": 8,
-    "location": "{\"type\":\"Point\",\"coordinates\":[-1.5552662581655925,53.803461605737006]}",
-    "work": [
-        "close",
-        "friends",
-        "group"
-    ],
-    "atmosphere": [
-        "relaxed",
-        "social",
-        "friendly"
-    ],
-    "facilities": [
-        "food_drink",
-        "free_wifi",
-        "laptops_allowed",
-        "sockets",
-        "signal",
-        "toilets",
-        "refreshments",
-        "break",
-        "bike_racks",
-        "gender_neutral_toilets",
-        "wheelchair_accessible",
-        "accessible_toilets"
-    ],
-    "title": "Café Seven",
-    "description": "Located in the Worsley building, Café Seven is one of our most popular and vibrant cafés. Recently refurbished the large seating area is a great place to meet with friends.",
-    "access": "Anyone (public)",
-    "space_type": "Café",
-    "address": "University of Leeds, LS2 9JT",
-    "building": "Worsley Building",
-    "floor": "Level 7",
-    "restricted": false,
-    "restriction": "",
-    "disabled_access": true,
-    "url": "https://gfal.leeds.ac.uk/where-to-eat/cafes/cafeseven/",
-    "phone_number": "",
-    "twitter_screen_name": "GreatFoodLeeds",
-    "facebook_url": "https://www.facebook.com/greatfoodleeds",
-    "campusmap_url": "https://www.leeds.ac.uk/campusmap?location=18472",
-    "campusmap_ref": "95",
-    "noise": "Background chatter",
-    "tags": [],
-    "opening_hours": {
-        "monday": {
-            "open": true,
-            "from": "8:30",
-            "to": "17:00"
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "creativeWorkStatus": "Published",
+    "mainEntity": {
+        "@type": "CafeOrCoffeeShop",
+        "name": "Café Seven",
+        "description": "Located in the Worsley building, Café Seven is one of our most popular and vibrant cafés. Recently refurbished the large seating area is a great place to meet with friends.",
+        "alternateName": "cafe-seven",
+        "url": "https://gfal.leeds.ac.uk/where-to-eat/cafes/cafeseven/",
+        "sameAs": "https://www.leeds.ac.uk/campusmap?location=18472",
+        "publicAccess": true,
+        "telephone": "",
+        "image": {
+            "@type": "ImageObject",
+            "contentUrl": "/assets/photos/Cafe-Seven.jpg",
+            "description": "Interior photograph showing part of the Café Seven logo and part of the service and self-service areas"
         },
-        "tuesday": {
-            "open": true,
-            "from": "8:30",
-            "to": "17:00"
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "University of Leeds",
+            "addressRegion": "Leeds, West Yorkshire",
+            "postalCode": "LS2 9JT",
+            "streetAddress": "Level 7, Worsley Building"
         },
-        "wednesday": {
-            "open": true,
-            "from": "8:30",
-            "to": "17:00"
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 53.803461605737006,
+            "longitude": -1.5552662581655925
         },
-        "thursday": {
-            "open": true,
-            "from": "8:30",
-            "to": "17:00"
-        },
-        "friday": {
-            "open": true,
-            "from": "8:30",
-            "to": "17:00"
-        },
-        "saturday": {
-            "open": false,
-            "from": "",
-            "to": ""
-        },
-        "sunday": {
-            "open": false,
-            "from": "",
-            "to": ""
-        }
-    },
-    "image": "/assets/photos/Cafe-Seven.jpg",
-    "imagealt": "Interior photograph showing part of the Café Seven logo and part of the service and self-service areas",
-    "slug": "cafe-seven",
-    "published": true,
-    "url_text": "Visit the Café Seven web site",
-    "phone_text": ""
+        "contactPoint": [
+            {
+                "@type": "ContactPoint",
+                "contactType": "Follow us on facebook",
+                "url": "https://www.facebook.com/greatfoodleeds"
+            },
+            {
+                "@type": "ContactPoint",
+                "contactType": "Follow us on X (formerly Twitter)",
+                "url": "https://twitter.com/GreatFoodLeeds"
+            }
+        ],
+        "amenityFeature": [
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Food &amp; drink allowed",
+                "alternateName": "food_drink",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Plug Sockets",
+                "alternateName": "sockets",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Phone signal",
+                "alternateName": "signal",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Toilets nearby",
+                "alternateName": "toilets",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Close to refreshments",
+                "alternateName": "refreshments",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Close to a place to take a break",
+                "alternateName": "break",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Bike racks",
+                "alternateName": "bike_racks",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Gender neutral toilets",
+                "alternateName": "gender_neutral_toilets",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Wheelchair accessible",
+                "alternateName": "wheelchair_accessible",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Toilets accessible to disabled people",
+                "alternateName": "accessible_toilets",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Background chatter",
+                "alternateName": "backgroundchatter",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Where others are working",
+                "alternateName": "close",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "With friends",
+                "alternateName": "friends",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "On a group project",
+                "alternateName": "group",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Relaxed",
+                "alternateName": "relaxed",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Social",
+                "alternateName": "social",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Friendly",
+                "alternateName": "friendly",
+                "value": true
+            }
+        ],
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "https://schema.org/Monday",
+                "opens": "08:30:00",
+                "closes": "17:00:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "https://schema.org/Tuesday",
+                "opens": "08:30:00",
+                "closes": "17:00:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "https://schema.org/Wednesday",
+                "opens": "08:30:00",
+                "closes": "17:00:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "https://schema.org/Thursday",
+                "opens": "08:30:00",
+                "closes": "17:00:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "https://schema.org/Friday",
+                "opens": "08:30:00",
+                "closes": "17:00:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "https://schema.org/Saturday"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "https://schema.org/Sunday"
+            }
+        ]
+    }
 }
