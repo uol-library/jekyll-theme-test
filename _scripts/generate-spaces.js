@@ -49,7 +49,7 @@ spaceJSON.forEach( space => {
                 ]
             }
         };
-        var itemYAML = "---\nlayout: space\npermalink: /" + space.slug + "/\n" + YAML.stringify( spacedata ) + "\n---\n";
+        var itemYAML = "---\nlayout: space\npermalink: /spaces/" + space.slug + "/\n" + YAML.stringify( spacedata ) + "\n---\n";
         fs.writeFile( path.resolve( __dirname, '../pages/', space.slug + '.md' ), itemYAML, err => {
             if (err) {
                 console.error( err );

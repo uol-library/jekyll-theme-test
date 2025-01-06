@@ -49,17 +49,22 @@ function initMap() {
      * Add click listeners
      */
     document.addEventListener( 'click', event => {
-        /* Returns to list view from map "more info" button */
-        if ( event.target.classList.contains( 'show-list' ) ) {
+        /* Shows dialog for space detail from "more info" button
+          when in full screen mode */
+        if ( 0 && event.target.classList.contains( 'show-space' ) && spacefinder.map.isFullscreen() ) {
             event.preventDefault();
-            document.dispatchEvent( new CustomEvent( 'viewchange', {
-                bubbles: true,
-                cancelable: true,
-                composed: false,
-                detail: {
-                    view: 'list'
-                }
-            } ) );
+            // close the popup
+            spacefinder.map.closePopup();
+            // get the space
+            let space = getSpaceById( event.target.getAttribute( 'data-spaceid' ) );
+            console.log(space);
+            let space_dialog = document.getElementById( 'space-dialog' );
+            space_dialog.innerHTML = getSpaceHTML(space);
+            let dialog = new A11yDialog( space_dialog );
+            dialog.show();
+            dialog.on('hide', (element, event) => {
+                space.marker.openPopup();
+            });
         }
         /* prevents the close button on popups changing the anchor */
         if ( event.target.classList.contains( 'leaflet-popup-close-button' ) || ( event.target.parentNode && event.target.parentNode.classList && event.target.parentNode.classList.contains( 'leaflet-popup-close-button' ) ) ) {
@@ -241,27 +246,6 @@ function maybeSetupMap() {
         spacefinder.mapReady = true;
         document.dispatchEvent( new Event( 'sfmapready' ) );
     }
-}
-
-/**
- * Returns HTML for an individual space's infoWindow 
- * @param {Object} space 
- * @returns {String} HTML content for space infoWindow
- */
-function getSpaceInfoWindowContent( space ) {
-	let info = [];
-	info.push( space.space_type );
-	if ( space.floor !== '' ) {
-		info.push( space.floor );
-	}
-	if ( space.building !== '' ) {
-		info.push( space.building );
-	}
-	let content = '<div class="spaceInfoWindow"><h3>'+space.title+'</h3>';
-	content += '<p class="info">' + info.join(', ') + '</p>';
-	content += '<p class="description">' + space.description + '</p>';
-	content += '<button class="show-list">More info&hellip;</button></div>';
-	return content;
 }
 
 /**

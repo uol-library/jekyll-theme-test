@@ -72,8 +72,28 @@ spacefinder.spaces.push({
     image: "{{ space.image }}",
     imagealt: "{{ space.imagealt }}",
     lat: {{ space.lat }},
-    lng: {{ space.lng }}
-});
+    lng: {{ space.lng }},
+    url: "{{ space.url }}",
+    url_text: "{{ space.url_text  }}",
+    campusmap_url: "{{ space.campusmap_url }}",
+    campusmap_ref: "{{ space.campusmap_ref }}",
+    restricted: {% if space.restricted %}true{% else %}false{% endif %},
+    restriction: "{{ space.restriction | escape }}",
+    access: "{{ space.access }}",
+    opening_hours: {
+        "monday": { "open": {% if space.opening_hours.monday.open %}true{% else %}false{% endif %}, "from": "{{ space.opening_hours.monday.from }}", "to": "{{ space.opening_hours.monday.to }}" },
+        "tuesday": { "open": {% if space.opening_hours.tuesday.open %}true{% else %}false{% endif %}, "from": "{{ space.opening_hours.tuesday.from }}", "to": "{{ space.opening_hours.tuesday.to }}" },
+        "wednesday": { "open": {% if space.opening_hours.wednesday.open %}true{% else %}false{% endif %}, "from": "{{ space.opening_hours.wednesday.from }}", "to": "{{ space.opening_hours.wednesday.to }}" },
+        "thursday": { "open": {% if space.opening_hours.thursday.open %}true{% else %}false{% endif %}, "from": "{{ space.opening_hours.thursday.from }}", "to": "{{ space.opening_hours.thursday.to }}" },
+        "friday": { "open": {% if space.opening_hours.friday.open %}true{% else %}false{% endif %}, "from": "{{ space.opening_hours.friday.from }}", "to": "{{ space.opening_hours.friday.to }}" },
+        "saturday": { "open": {% if space.opening_hours.saturday.open %}true{% else %}false{% endif %}, "from": "{{ space.opening_hours.saturday.from }}", "to": "{{ space.opening_hours.saturday.to }}" },
+        "sunday": { "open": {% if space.opening_hours.sunday.open %}true{% else %}false{% endif %}, "from": "{{ space.opening_hours.sunday.from }}", "to": "{{ space.opening_hours.sunday.to }}" }
+    },
+    phone_number: "{{ space.phone_number }}",
+    twitter_screen_name: "{{ space.twitter_screen_name }}",
+    facebook_url: "{{ space.facebook_url }}",
+    facilities: ["{{ space.facilities | join: '","' }}"],
+  });
   {% endif %}
 {% endfor %}
 spacefinder.spacesLoaded = true;

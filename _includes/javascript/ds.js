@@ -39,6 +39,8 @@ document.addEventListener( 'DOMContentLoaded', () => {
             let termid = event.target.getAttribute( 'data-termid' );
             document.getElementById( termid ).checked = false;
             document.dispatchEvent( new Event( 'viewfilter', { bubbles: true } ) );
+        } else if ( event.target.getAttribute( 'id' ) === 'clear_filter_panel' ) {
+            document.dispatchEvent( new Event( 'viewfilter', { bubbles: true } ) );
         }
     });
     /* search action */
@@ -268,10 +270,10 @@ function getSpaceInfoWindowContent( space ) {
 	if ( space.building !== '' ) {
 		info.push( space.building );
 	}
-	let content = '<div class="spaceInfoWindow"><h3><a href="'+spacefinder.imageBaseURL+'/'+space.slug+'">'+space.title+'</a></h3>';
+	let content = '<div class="spaceInfoWindow"><h3><a class="show-space" href="'+spacefinder.imageBaseURL+'/'+space.slug+'" data-spaceid="'+space.id+'">'+space.title+'</a></h3>';
 	content += '<p class="info">' + info.join(', ') + '</p>';
 	content += '<p class="description">' + space.description + '</p>';
-	content += '<button class="show-list">More info&hellip;</button></div>';
+	content += '<p><a class="show-space" href="'+spacefinder.imageBaseURL+'/'+space.slug+'" data-spaceid="' + space.id + '">More info&hellip;</a></p></div>';
 	return content;
 }
 
@@ -280,17 +282,97 @@ function getSpaceInfoWindowContent( space ) {
  */
 function loadInitialFilter(){
     if ( window.location.hash ) {
-        console.log(window.location.hash);
         let hp = window.location.hash.split( '/' );
         if ( hp.length === 3 ) {
             if ( hp[1] == 'space_type' ) {
-                console.log(hp[2]);
                 let type_cbx = document.getElementById('space_type_'+hp[2]);
                 if ( type_cbx ) {
                     type_cbx.checked = true;
-                    applyFilters();
+                    document.dispatchEvent( new Event( 'viewfilter', { bubbles: true } ) );
                 }
             }
         }
     }
 }
+
+function getSpaceHTML( space ) {
+    let spaceHTML = '<div class="dialog-overlay" data-a11y-dialog-hide></div><article role="document" class="dialog-content">';
+    spaceHTML += '<header><button type="button" class="button dialog-close" data-a11y-dialog-hide aria-label="Close dialog">&times;</button>';
+    spaceHTML += '<h2 id="space-title">' + space.title + '</h2>';
+    spaceHTML += '</header><div class="uol-rich-text uol-rich-text--with-lead">';
+
+    // spaceContainer.setAttribute( 'data-id', space.id );
+    // spaceContainer.setAttribute( 'id', 'space' + space.id );
+    // spaceContainer.setAttribute( 'data-sortalpha', space.sortKey );
+    // spaceContainer.setAttribute( 'class', getClassList( space ) );
+//    spaceHTML += '<div class="uol-results-items__item__text-container space-summary"><h2 class="uol-results-items__item__title"><button data-slug="' + space.slug + '" class="accordion-trigger space-title load-info" aria-expanded="false" aria-controls="additionalInfo' + space.id + '" data-spaceid="' + space.id + '">' + space.title + '</button></h3>';
+//    spaceHTML += '<dl class="uol-results-items__item__meta">';
+//    spaceHTML += '<div class="uol-results-items__item__meta__group"><dt class="uol-results-items__item__meta__label">Type</dt><dd class="uol-results-items__item__meta__data">' + space.space_type + '<span class="distance" id="distance' + space.id +'"></span></dd></div>';
+//    spaceHTML += '<div class="additionalInfo" id="additionalInfo' + space.id + '"></div>';
+    spaceHTML += '<p>' + space.address + ' (<a target="googlemaps" href="https://www.google.com/maps/dir/?api=1&amp;destination=' + space.lat + '%2c' + space.lng + '&amp;travelmode=walking">get directions</a>)</p>';
+    spaceHTML += '<p>' + space.description + '</p>';
+    spaceHTML += '<section class="section-facts"><h4>Key Facts</h4><ul class="bulleticons">';//<li class="icon-marker switch-view"><a class="show-map" href="#">Show on map</a></li>';
+    if ( space.url !== "" && space.url_text !== '' ) {
+        spaceHTML += '<li class="icon-link"><a target="spaceurl" href="' + space.url + '">' + space.url_text + '</a></li>';
+    }
+    if ( space.campusmap_url != '' ) {
+        let campusmap_ref = space.campusmap_ref !== '' ? ' (map reference ' + space.campusmap_ref + ')': '';
+        spaceHTML += '<li class="icon-uol-logo-mark"><a target="campusmap" href="' + space.campusmap_url + '">View on the University campus map</a>' + campusmap_ref + '</li>';
+    }
+    if ( space.restricted ) {
+        spaceHTML += '<li class="icon-public">Open to ' + space.access;
+        if ( space.restriction ) {
+            spaceHTML += ' (' + space.restriction + ')';
+        }
+        spaceHTML += '</li>';
+    } else {
+        spaceHTML += '<li class="icon-public">Open to ' + space.access + '<li>';
+    }
+    spaceHTML += '</ul></section>';
+
+    spaceHTML += '<section class="section-opening"><h4>Opening Times</h4>';
+    //spaceHTML += '<p class="icon-time-short" data-openmsg-id="' + space.id + '">' + spacenode.getAttribute( 'data-openmsg' ) + '</p>';
+    spaceHTML += '<ul class="opening-times">';
+    [ 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday' ].forEach( (day, idx) => {
+        let today = new Date().getDay();
+        let todayidx = ( ( idx + 1 ) < 7 ) ? ( idx + 1 ): 0;
+        let istodayclass = ( todayidx === today ) ? ' class="today"': '';
+        if ( space.opening_hours[day].open ) {
+            spaceHTML += '<li' + istodayclass + '><span class="dayname">' + day.charAt(0).toUpperCase() + day.slice(1) + '</span> <span class="opening">' + space.opening_hours[ day ].from + ' - ' + space.opening_hours[ day ].to +'</span></li>';
+        } else {
+            spaceHTML += '<li' + istodayclass + '><span class="dayname">' + day.charAt(0).toUpperCase() + day.slice(1) + '</span> <span class="opening">Closed</span></li>';
+        }
+    });
+    spaceHTML += '</ul></section>';
+    if ( space.phone_number !== '' || space.twitter_screen_name !== '' || space.facebook_url !== '' ) {
+        spaceHTML += '<section class="section-contact"><h4>Contact</h4><ul class="bulleticons">';
+        if ( space.phone_number !== '' ) {
+            let phoneattr = space.phone_number.replace( /[^0-9]+/g, '' ).replace( /^0/, '+44' );
+            spaceHTML += '<li class="icon-phone"><a href="tel:' + phoneattr + '">' +space.phone_text + ' on ' + space.phone_number + '</a></li>';
+        }
+        if ( space.twitter_screen_name !== '' ) {
+            spaceHTML += '<li class="icon-twitter"><a href="https://twitter.com/' + space.twitter_screen_name + '">Follow ' + space.twitter_screen_name + ' on twitter</a></li>';
+        }
+        if ( space.facebook_url !== '' ) {
+            let facebookName = space.facebook_url.replace( 'https://www.facebook.com/', '' );
+            spaceHTML += '<li class="icon-facebook-squared"><a href="' + space.facebook_url + '">Follow ' + facebookName + ' on facebook</a></li>';
+        }
+        spaceHTML += '</ul></section>'
+    }
+
+    if ( space.facilities.length ) {
+        let facilitieslist = '';
+        space.facilities.forEach( fac => {
+            let filterData = getFilterData( 'facilities', fac );
+            if ( filterData ) {
+                facilitieslist += '<li class="' + filterData.icon  + '">' + filterData.label + '</li>';
+            }
+        });
+        if ( facilitieslist != '' ) {
+            spaceHTML += '<section class="section-facilities"><h4>Facilities Available</h4><ul class="bulleticons">' + facilitieslist + '</ul></section>';
+        }
+    }
+    spaceHTML += '</article>'; 
+    return spaceHTML;
+}
+

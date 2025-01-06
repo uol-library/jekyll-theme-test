@@ -13,35 +13,96 @@
  * @return {Element} HTML element
  */
 function getSpaceHTML( space ) {
-    spaceContainer = document.createElement('article');
-
-    spaceContainer.setAttribute( 'data-id', space.id );
-    spaceContainer.setAttribute( 'id', 'space' + space.id );
-    spaceContainer.setAttribute( 'data-sortalpha', space.sortKey );
-    spaceContainer.setAttribute( 'class', getClassList( space ) );
-    let spaceHTML = '<div class="uol-results-items__item__text-container space-summary"><h2 class="uol-results-items__item__title"><button data-slug="' + space.slug + '" class="accordion-trigger space-title load-info" aria-expanded="false" aria-controls="additionalInfo' + space.id + '" data-spaceid="' + space.id + '">' + space.title + '</button></h3>';
-    spaceHTML += '<dl class="uol-results-items__item__meta">';
-    spaceHTML += '<div class="uol-results-items__item__meta__group"><dt class="uol-results-items__item__meta__label">Type</dt><dd class="uol-results-items__item__meta__data">' + space.space_type + '<span class="distance" id="distance' + space.id +'"></span></dd></div>';
-    let loc = '';
+    let spaceHTML = '<div class="dialog-overlay" data-a11y-dialog-hide></div><article role="document" class="dialog-content">';
+    spaceHTML += '<div class="uol-article__head"><header class="page-heading">';
+    spaceHTML += '<button type="button" class="button dialog-close" data-a11y-dialog-hide aria-label="Close dialog">&times;</button>';
+    spaceHTML += '<h1 class="page-heading__title"><span class="page-heading__title__main">' + space.title + '</span></h1>';
+    spaceHTML += '</header></div>';
+    spaceHTML += '<div class="uol-article__content">';
+    if ( space.image !== "" && space.imagealt !== "" ) {
+        spaceHTML += '<figure class="uol-featured-image">';
+        spaceHTML += '<img class="uol-featured-image__img" src="{{ page.data.image | absolute_url }}" alt="' + space.imagealt + '">';
+        spaceHTML += '</figure>';
+    }
+    spaceHTML += '<section class="opening-times"><h3>Key facts</h3>';
+    spaceHTML += '<div class="uol-info-list-container"><dl class="uol-info-list ">';
+    spaceHTML += '<div class="uol-info-list__group"><dt class="uol-info-list__term ">Address</dt>';
     if ( space.floor !== '' ) {
-        loc += '<span class="address-floor">' + space.floor + '</span>, ';
+        spaceHTML += '<dd class="uol-info-list__data ">' + space.floor + '</dd>, ';
     }
     if ( space.building !== '' ) {
-        loc += '<span class="address-building">' + space.building + '</span>, ';
+        spaceHTML += '<dd class="uol-info-list__data ">' + space.building + '</dd>, ';
     }
     if ( space.address !== '' ) {
-        loc += '<span class="address-location">' + space.address + '</span>';
+        spaceHTML += '<dd class="uol-info-list__data ">' + space.address + '</dd>';
     }
-    spaceHTML += '<div class="uol-results-items__item__meta__group"><dt class="uol-results-items__item__meta__label">Address</dt><dd class="uol-results-items__item__meta__data">' + loc + '</dd></div>';
-    spaceHTML += '</dl>';
-    spaceHTML += '<p class="uol-results-items__item__summary">' + space.description + '</p></div>';
-    if ( space.image != '' ) {
-        spaceHTML += '<div class="uol-results-items__item__image-container"><img class="uol-results-items__item__img" src="' + spacefinder.imageBaseURL + space.image + '" class="space-image" loading="lazy" alt="' + space.imagealt + '"></div>';
+    spaceHTML += '<dd class="uol-info-list__data "><a target="googlemaps" href="https://www.google.com/maps/dir/?api=1&amp;destination=' + space.lat + '%2c' + space.lng + '&amp;travelmode=walking">get directions</a></dd>';
+    spaceHTML += '</div>';
+    spaceHTML += '<div class="uol-info-list__group"><dt class="uol-info-list__term ">Type</dt><dd class="uol-info-list__data ">' + space.space_type + '</dd></div>';
+    spaceHTML += '<div class="uol-info-list__group"><dt class="uol-info-list__term ">Access</dt><dd class="uol-info-list__data ">Open to ' + space.access;
+    if ( space.restriction ) {
+        spaceHTML += ' (' + space.restriction + ')';
     }
-    spaceHTML += '<div class="additionalInfo" id="additionalInfo' + space.id + '"></div>';
-    spaceHTML += '</article>';
-    spaceContainer.innerHTML = spaceHTML;
-    return spaceContainer;
+    spaceHTML += '</dd></div>';
+    if ( space.url !== "" && space.url_text !== '' ) {
+        spaceHTML += '<div class="uol-info-list__group"><dt class="uol-info-list__term ">Website</dt><dd class="uol-info-list__data "><a target="spaceurl" href="' + space.url + '">' + space.url_text + '</dd></div>';
+    }
+    if ( space.campusmap_url != '' ) {
+        let campusmap_ref = space.campusmap_ref !== '' ? ' (map reference ' + space.campusmap_ref + ')': '';
+        spaceHTML += '<div class="uol-info-list__group"><dt class="uol-info-list__term ">Campus map</dt><dd class="uol-info-list__data "><a target="campusmap" href="' + space.campusmap_url + '">View on the University campus map</a>' + campusmap_ref + '</dd></div>';
+    }
+    spaceHTML += '</dl></div></section>';
+
+    spaceHTML += '<div class="uol-rich-text uol-rich-text--with-lead">';
+    spaceHTML += '<p>' + space.description + '</p>';
+    spaceHTML += '</div></section>';
+    spaceHTML += '<section class="opening-times"><h3>Opening Times</h3>';
+    spaceHTML += '<table><thead><tr><th>Day</th><th>Open</th><th>Close</th></tr></thead><tbody>';
+    [ 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday' ].forEach( (day, idx) => {
+        let today = new Date().getDay();
+        let todayidx = ( ( idx + 1 ) < 7 ) ? ( idx + 1 ): 0;
+        let istodayclass = ( todayidx === today ) ? ' class="today"': '';
+        if ( space.opening_hours[day].open ) {
+            spaceHTML += '<tr' + istodayclass + '><td class="dayname">' + day.charAt(0).toUpperCase() + day.slice(1) + '</td><td class="opening">' + space.opening_hours[ day ].from + '</td><td class="closing">' + space.opening_hours[ day ].to +'</td></tr>';
+        } else {
+            spaceHTML += '<tr' + istodayclass + '><td class="dayname">' + day.charAt(0).toUpperCase() + day.slice(1) + '</td><td class="opening" colspan="2">Closed</td></tr>';
+        }
+    });
+    spaceHTML += '</tbody></table></section>';
+
+
+
+    spaceHTML += '<p class="icon-time-short" data-openmsg-id="' + space.id + '">' + spacenode.getAttribute( 'data-openmsg' ) + '</p>';
+    if ( space.phone_number !== '' || space.twitter_screen_name !== '' || space.facebook_url !== '' ) {
+        spaceHTML += '<section class="section-contact"><h2>Contact</h2><ul class="bulleticons">';
+        if ( space.phone_number !== '' ) {
+            let phoneattr = space.phone_number.replace( /[^0-9]+/g, '' ).replace( /^0/, '+44' );
+            spaceHTML += '<li class="icon-phone"><a href="tel:' + phoneattr + '">' +space.phone_text + ' on ' + space.phone_number + '</a></li>';
+        }
+        if ( space.twitter_screen_name !== '' ) {
+            spaceHTML += '<li class="icon-twitter"><a href="https://twitter.com/' + space.twitter_screen_name + '">Follow ' + space.twitter_screen_name + ' on twitter</a></li>';
+        }
+        if ( space.facebook_url !== '' ) {
+            let facebookName = space.facebook_url.replace( 'https://www.facebook.com/', '' );
+            spaceHTML += '<li class="icon-facebook-squared"><a href="' + space.facebook_url + '">Follow ' + facebookName + ' on facebook</a></li>';
+        }
+        spaceHTML += '</ul></section>'
+    }
+
+    if ( space.facilities.length ) {
+        let facilitieslist = '';
+        space.facilities.forEach( fac => {
+            let filterData = getFilterData( 'facilities', fac );
+            if ( filterData ) {
+                facilitieslist += '<li class="' + filterData.icon  + '">' + filterData.label + '</li>';
+            }
+        });
+        if ( facilitieslist != '' ) {
+            spaceHTML += '<section class="section-facilities"><h2>Facilities Available</h2><ul class="bulleticons">' + facilitieslist + '</ul></section>';
+        }
+    }
+    spaceHTML += '</article>'; 
+    return spaceHTML;
 }
 
 /**

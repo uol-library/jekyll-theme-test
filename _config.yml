@@ -14,6 +14,7 @@ author:
 description: >
   Test site for Jekyll Design System theme
 url: https://uol-library.github.io/
+host: localhost
 baseurl: /spacefinder-ds
 
 # contact information
